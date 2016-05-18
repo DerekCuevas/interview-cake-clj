@@ -10,5 +10,5 @@
 
 (defn get-max-profit [stock-prices]
   (:max-profit (reduce update-min-max
-          {:max-profit 0 :min-price infinity}
-          stock-prices)))
+                       {:max-profit 0 :min-price infinity}
+                       stock-prices)))
