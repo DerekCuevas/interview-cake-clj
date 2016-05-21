@@ -2,9 +2,9 @@
   (:gen-class))
 
 ;; FIXME: is there a built in equivalent to this?
-(def ^:private infinity 1000000)
+(def ^:private infinity 1000000000)
 
-(defn update-min-max [{:keys [min-price max-profit]} price]
+(defn- update-min-max [{:keys [min-price max-profit]} price]
   {:min-price (min price min-price)
    :max-profit (max (- price min-price) max-profit)})
 
