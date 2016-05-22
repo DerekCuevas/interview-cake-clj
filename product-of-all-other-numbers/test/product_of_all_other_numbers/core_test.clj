@@ -8,6 +8,7 @@
     (is (= (product-of-others '()) '()))
     (is (= (product-of-others [1]) '(1)))
     (is (= (product-of-others '(1)) '(1)))
+    (is (= (product-of-others '(5)) '(1)))
     (is (= (product-of-others '(1 1 1)) '(1 1 1))))
   (testing "should map coll to the product of every integer except the integer at that index"
     (is (= (product-of-others [1 2 3 4 5]) '(120 60 40 30 24)))
@@ -21,6 +22,7 @@
     (is (= (product-of-others-fast '()) '()))
     (is (= (product-of-others-fast [1]) '(1)))
     (is (= (product-of-others-fast '(1)) '(1)))
+    (is (= (product-of-others-fast '(5)) '(1)))
     (is (= (product-of-others-fast '(1 1 1)) '(1 1 1))))
   (testing "should map coll to the product of every integer except the integer at that index"
     (is (= (product-of-others-fast [1 2 3 4 5]) '(120 60 40 30 24)))

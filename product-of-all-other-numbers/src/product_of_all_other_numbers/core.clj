@@ -1,7 +1,7 @@
 (ns product-of-all-other-numbers.core
   (:gen-class))
 
-;; O(n^2) solutions - using division
+;; O(n^2) solutions - using division (not checking for zeros)
 (defn product-of-others [nums]
   (map #(/ (apply * nums) %) nums))
 
