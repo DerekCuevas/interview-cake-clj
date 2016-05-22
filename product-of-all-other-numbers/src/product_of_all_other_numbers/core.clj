@@ -1,8 +1,9 @@
 (ns product-of-all-other-numbers.core
   (:gen-class))
 
-;; O(n^2) solutions - using division (not checking for zeros)
-(defn product-of-others [nums]
+(defn product-of-others
+  "O(n^2) solutions - using division (not checking for zeros)"
+  [nums]
   (map #(/ (apply * nums) %) nums))
 
 (defn- products-before [nums]
@@ -14,8 +15,9 @@
 (defn- products-after [nums]
   (rseq (products-before (rseq (vec nums)))))
 
-;; O(n) solution - without using division
-(defn product-of-others-fast [nums]
+(defn product-of-others-fast
+  "O(n) solution - without using division"
+  [nums]
   (if (empty? nums)
     '()
     (map * (products-before nums) (products-after nums))))
