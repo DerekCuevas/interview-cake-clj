@@ -12,7 +12,7 @@
           (butlast nums)))
 
 (defn- products-after [nums]
-  (reverse (products-before (reverse nums))))
+  (rseq (products-before (rseq (vec nums)))))
 
 ;; O(n) solution - without using division
 (defn product-of-others-fast [nums]
