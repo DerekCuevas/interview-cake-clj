@@ -3,7 +3,7 @@
 
 ;; O(n^2) solutions - using division
 (defn product-of-others [nums]
-  (map #(/ (reduce * nums) %) nums))
+  (map #(/ (apply * nums) %) nums))
 
 (defn- products-before [nums]
   (reduce (fn [acc n]
@@ -11,9 +11,11 @@
           [1]
           (butlast nums)))
 
-;; O(5n) ~ O(n) solution - without using division
+(defn- products-after [nums]
+  (reverse (products-before (reverse nums))))
+
+;; O(n) solution - without using division
 (defn product-of-others-fast [nums]
   (if (empty? nums)
     '()
-    (map * (products-before nums)
-           (reverse (products-before (reverse nums))))))
+    (map * (products-before nums) (products-after nums))))
