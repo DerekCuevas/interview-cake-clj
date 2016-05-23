@@ -6,12 +6,9 @@
   (reduce (fn [selected-k n]
             (let [selected (and (not-empty selected-k) (apply replace-fn selected-k))]
               (cond
-                (< (count selected-k) k)
-                  (conj selected-k n)
-                (select-fn n selected)
-                  (conj (disj selected-k selected) n)
-                :else
-                  selected-k)))
+                (< (count selected-k) k) (conj selected-k n)
+                (select-fn n selected) (conj (disj selected-k selected) n)
+                :else selected-k)))
           #{}
           coll))
 
