@@ -1,22 +1,28 @@
 (ns highest-product-of-three.core
   (:gen-class))
 
-;; TODO: doc this
-(defn- select-k [k coll select-fn replace-fn]
-  (reduce (fn [selected-k n]
-            (let [selected (and (not-empty selected-k) (apply replace-fn selected-k))]
+(defn- select-k
+  "Selects k items from a collection where (select selected) is not nil
+  and (replace? n) is true. Will select blindly if k is greater than
+  the length of selected."
+  [k coll replace? select]
+  (reduce (fn [selected n]
+            (let [to-replace (select selected)]
               (cond
-                (< (count selected-k) k) (conj selected-k n)
-                (select-fn n selected) (conj (disj selected-k selected) n)
-                :else selected-k)))
+                (< (count selected) k)
+                  (conj selected n)
+                (and (some? to-replace) (replace? n to-replace))
+                  (conj (disj selected to-replace) n)
+                :else
+                  selected)))
           #{}
           coll))
 
 (defn- select-k-maxs [k coll]
-  (select-k k coll > min))
+  (select-k k coll > #(when (not-empty %) (apply min %))))
 
 (defn- select-k-mins [k coll]
-  (select-k k coll < max))
+  (select-k k coll < #(when (not-empty %) (apply max %))))
 
 (defn- highest-product-of-k-positive-ints [k nums]
   (apply * (select-k-maxs k nums)))
@@ -29,10 +35,16 @@
 ;; maxs < k
 ;; mins < k => if count of min < k - 1 is even?
 ;;             comp product of maxs to product of mins - 1 and largest max
+
+;; four conds
+;; if (mins.len is even?) {}
+
 ;; TODO: implement this
 (defn highest-product-of-k [k nums]
-  (let [mins (select-k-mins k nums)
-        maxs (select-k-maxs k nums)]))
+  (let [negative-mins (filter neg? (select-k-mins k nums))
+        maxs (filter? pos? (select-k-maxs k nums))]
+    (if (even? k)
+      (max (apply * mins) (apply * maxs)))))
 
 (defn highest-product-of-three
   "O(n) solution - with negative numbers"
