@@ -1,21 +1,28 @@
 (ns highest-product-of-three.core
   (:gen-class))
 
-(defn- select-k [k coll compf]
-  (reduce (fn [selected n]
-            (let [min-selected (and (not-empty selected) (apply min selected))]
+;; TODO: doc this
+(defn- select-k [k coll select-fn replace-fn]
+  (reduce (fn [selected-k n]
+            (let [selected (and (not-empty selected-k) (apply replace-fn selected-k))]
               (cond
-                (< (count selected) k)
-                  (conj selected n)
-                (compf n min-selected)
-                  (conj (disj selected min-selected) n)
+                (< (count selected-k) k)
+                  (conj selected-k n)
+                (select-fn n selected)
+                  (conj (disj selected-k selected) n)
                 :else
-                  selected)))
+                  selected-k)))
           #{}
           coll))
 
-(defn highest-product-of-k-positive-ints [k nums]
-  (apply * (select-k k nums >)))
+(defn- select-k-maxs [k coll]
+  (select-k k coll > min))
+
+(defn- select-k-mins [k coll]
+  (select-k k coll < max))
+
+(defn- highest-product-of-k-positive-ints [k nums]
+  (apply * (select-k-maxs k nums)))
 
 (defn highest-product-of-three-positive-ints
   "O(n) solution - without negative numbers"
@@ -23,11 +30,12 @@
   (highest-product-of-k-positive-ints 3 nums))
 
 ;; maxs < k
-;; mins < k => if count of min < k - 1 is even? comp product of maxs to product of mins - 1 and largest max
+;; mins < k => if count of min < k - 1 is even?
+;;             comp product of maxs to product of mins - 1 and largest max
 ;; TODO: implement this
 (defn highest-product-of-k [k nums]
-  (let [mins (select-k k nums <)
-        maxs (select-k k nums >)]))
+  (let [mins (select-k-mins k nums)
+        maxs (select-k-maxs k nums)]))
 
 (defn highest-product-of-three
   "O(n) solution - with negative numbers"
