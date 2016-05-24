@@ -44,12 +44,5 @@
         product-of-maxs (apply * maxs)]
     (if (= (count min-negatives) 2)
       (max product-of-maxs
-           (* (reduce max maxs) (apply * min-negatives)))
+           (* (apply max maxs) (apply * min-negatives)))
       product-of-maxs)))
-
-;; TODO: implement this
-#_((defn highest-product-of-k [k nums]
-  (let [negative-mins (filter neg? (select-k-mins k nums))
-        maxs (filter pos? (select-k-maxs k nums))]
-    (if (even? k)
-      (max (apply * mins) (apply * maxs))))))
