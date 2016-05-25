@@ -4,9 +4,10 @@
 (defn- overlapping-range [range-a range-b]
   (let [[under over] (sort-by :start [range-a range-b])]
     (when (>= (under :end) (over :start))
-      {:start (under :start)
-       :end (max (under :end) (over :end))})))
+      {:start (max (under :start) (over :start))
+       :end (min (under :end) (over :end))})))
 
+;; refactor range into :start :length
 (defn- rect->vertical-range [rect]
   {:start (rect :y) :end (+ (rect :y) (rect :height))})
 
@@ -21,7 +22,6 @@
   (overlapping-range (rect->horizontal-range rect-a)
                      (rect->horizontal-range rect-b)))
 
-;; need to take min of starts
 (defn rectangular-overlap [rect-a rect-b]
   (let [vertical-overlapping-range (find-vertical-overlap rect-a rect-b)
         horizontal-overlapping-range (find-horizontal-overlap rect-a rect-b)]
