@@ -7,7 +7,6 @@
       {:start (max (under :start) (over :start))
        :end (min (under :end) (over :end))})))
 
-;; refactor range into :start :length
 (defn- rect->vertical-range [rect]
   {:start (rect :y) :end (+ (rect :y) (rect :height))})
 
@@ -22,13 +21,16 @@
   (overlapping-range (rect->horizontal-range rect-a)
                      (rect->horizontal-range rect-b)))
 
-(defn rectangular-overlap [rect-a rect-b]
+(defn- length [{:keys [start end]}]
+  (- end start))
+
+(defn rectangular-overlap
+  "O(1) time solution - will return overlapping rectangle, nil if no overlap."
+  [rect-a rect-b]
   (let [vertical-overlapping-range (find-vertical-overlap rect-a rect-b)
         horizontal-overlapping-range (find-horizontal-overlap rect-a rect-b)]
-    (if (and vertical-overlapping-range horizontal-overlapping-range)
+    (when (and vertical-overlapping-range horizontal-overlapping-range)
       {:x (horizontal-overlapping-range :start)
        :y (vertical-overlapping-range :start)
-       :width (- (horizontal-overlapping-range :end)
-                 (horizontal-overlapping-range :start))
-       :height (- (vertical-overlapping-range :end)
-                  (vertical-overlapping-range :start))})))
+       :width (length horizontal-overlapping-range)
+       :height (length vertical-overlapping-range)})))
