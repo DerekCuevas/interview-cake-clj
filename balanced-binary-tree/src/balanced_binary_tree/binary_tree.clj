@@ -22,21 +22,18 @@
 (defn min-height [root]
   (height root min))
 
-(defn insert
-  ([value]
-    (node value))
-  ([root value]
-    (loop [current-node root
-           path []]
-      (cond
-        (nil? current-node)
-          (assoc-in root path (node value))
-        (empty? current-node)
-          (node value)
-        (< value (current-node :value))
-          (recur (current-node :left) (conj path :left))
-        (> value (current-node :value))
-          (recur (current-node :right) (conj path :right))))))
+(defn insert [root value]
+  (loop [current-node root
+         path []]
+    (cond
+      (nil? current-node)
+        (assoc-in root path (node value))
+      (empty? current-node)
+        (node value)
+      (< value (current-node :value))
+        (recur (current-node :left) (conj path :left))
+      (> value (current-node :value))
+        (recur (current-node :right) (conj path :right)))))
 
 (defn coll->binary-search-tree [coll]
   (reduce insert {} coll))
