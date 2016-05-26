@@ -10,11 +10,11 @@
 (defn set-right [root n]
   (assoc root :right n))
 
-(defn- height [root f]
+(defn- height [root pred]
   (if (nil? root)
     0
-    (+ 1 (f (height (root :left) f)
-            (height (root :right) f)))))
+    (inc (pred (height (root :left) pred)
+               (height (root :right) pred)))))
 
 (defn max-height [root]
   (height root max))
