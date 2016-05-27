@@ -32,9 +32,23 @@
 (defn coll->binary-search-tree [coll]
   (reduce insert {} coll))
 
+(defn tree->preorder-lazy-seq [root]
+  (if (empty? root)
+    '()
+    (lazy-cat (list (root :value))
+              (tree->preorder-lazy-seq (root :left))
+              (tree->preorder-lazy-seq (root :right)))))
+
 (defn tree->inorder-lazy-seq [root]
   (if (empty? root)
     '()
     (lazy-cat (tree->inorder-lazy-seq (root :left))
               (list (root :value))
               (tree->inorder-lazy-seq (root :right)))))
+
+(defn tree->postorder-lazy-seq [root]
+  (if (empty? root)
+    '()
+    (lazy-cat (tree->postorder-lazy-seq (root :left))
+              (tree->postorder-lazy-seq (root :right))
+              (list (root :value)))))
