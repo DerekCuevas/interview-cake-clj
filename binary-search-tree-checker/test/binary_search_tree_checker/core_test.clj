@@ -28,3 +28,18 @@
     (is (= (valid-binary-search-tree? invalid-b) false))
     (is (= (valid-binary-search-tree? invalid-c) false))
     (is (= (valid-binary-search-tree? invalid-d) false))))
+
+(deftest valid-binary-search-tree-rec?-test
+  (testing "egde cases"
+    (is (= (valid-binary-search-tree-rec? {}) true))
+    (is (= (valid-binary-search-tree-rec? (tree/node 4)) true)))
+  (testing "should test weather a binary tree is a valid binary search tree"
+    (is (= (valid-binary-search-tree-rec? valid-a) true))
+    (is (= (valid-binary-search-tree-rec? valid-b) true))
+    (is (= (valid-binary-search-tree-rec? valid-c) true))
+    (is (= (valid-binary-search-tree-rec? valid-d) true))
+    (is (= (valid-binary-search-tree-rec? valid-e) true))
+    (is (= (valid-binary-search-tree-rec? invalid-a) false))
+    (is (= (valid-binary-search-tree-rec? invalid-b) false))
+    (is (= (valid-binary-search-tree-rec? invalid-c) false))
+    (is (= (valid-binary-search-tree-rec? invalid-d) false))))
