@@ -31,3 +31,10 @@
 
 (defn coll->binary-search-tree [coll]
   (reduce insert {} coll))
+
+(defn inorder [root]
+  (if (empty? root)
+    '()
+    (lazy-cat (inorder (root :left))
+              (list (root :value))
+              (inorder (root :right)))))

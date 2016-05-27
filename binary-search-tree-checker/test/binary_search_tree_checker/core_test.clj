@@ -15,6 +15,9 @@
 (def invalid-d (assoc-in valid-d [:left :left :left] (tree/node 125)))
 
 (deftest valid-binary-search-tree?-test
+  (testing "egde cases"
+    (is (= (valid-binary-search-tree? {}) true))
+    (is (= (valid-binary-search-tree? (tree/node 4)) true)))
   (testing "should test weather a binary tree is a valid binary search tree"
     (is (= (valid-binary-search-tree? valid-a) true))
     (is (= (valid-binary-search-tree? valid-b) true))
