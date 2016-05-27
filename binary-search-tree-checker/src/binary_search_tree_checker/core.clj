@@ -5,6 +5,6 @@
 (defn valid-binary-search-tree?
   "O(n) time & space - checking if the inorder traversal is sorted."
   [root]
-  (if-let [sorted (tree/inorder root)]
+  (if-let [sorted (tree/tree->inorder-lazy-seq root)]
     (or (zero? (count sorted)) (apply <= sorted))
     false))
