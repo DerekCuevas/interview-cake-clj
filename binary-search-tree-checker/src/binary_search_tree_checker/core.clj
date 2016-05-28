@@ -9,12 +9,9 @@
     (or (zero? (count sorted)) (apply <= sorted))
     false))
 
-;; FIXME: built in equivalents for this?
-(def ^:private neg-infinity -10000000000)
-(def ^:private pos-infinity 10000000000)
-
 (defn valid-binary-search-tree-rec?
-  ([root] (valid-binary-search-tree-rec? root neg-infinity pos-infinity))
+  ([root]
+    (valid-binary-search-tree-rec? root Integer/MIN_VALUE Integer/MAX_VALUE))
   ([root min max]
     (cond
       (empty? root) true
