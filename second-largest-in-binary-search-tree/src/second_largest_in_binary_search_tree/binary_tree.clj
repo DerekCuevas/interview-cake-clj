@@ -53,8 +53,7 @@
               (tree->postorder-lazy-seq (root :right))
               (list (root :value)))))
 
-(defn largest [root]
-  (loop [current root]
-    (if (nil? (current :right))
-      (current :value)
-      (recur (current :right)))))
+(defn largest [{:keys [value right]}]
+  (if (nil? right)
+    value
+    (recur right)))
