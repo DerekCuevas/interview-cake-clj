@@ -24,9 +24,9 @@
         (assoc-in root path (node value))
       (empty? current-node)
         (node value)
-      (< value (current-node :value))
+      (neg? (compare value (current-node :value)))
         (recur (current-node :left) (conj path :left))
-      (> value (current-node :value))
+      (pos? (compare value (current-node :value)))
         (recur (current-node :right) (conj path :right)))))
 
 (defn coll->binary-search-tree [coll]
@@ -52,3 +52,9 @@
     (lazy-cat (tree->postorder-lazy-seq (root :left))
               (tree->postorder-lazy-seq (root :right))
               (list (root :value)))))
+
+(defn largest [root]
+  (loop [current root]
+    (if (nil? (current :right))
+      (current :value)
+      (recur (current :right)))))
