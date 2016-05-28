@@ -2,7 +2,7 @@
   (:gen-class))
 
 (defn binary-search
-  "O(nlgn) - returns index of item in vector (arr), -1 if not found."
+  "O(lgn) - returns index of item in vector (arr), -1 if not found."
   ([arr item]
     (binary-search arr item 0))
   ([arr item base]
