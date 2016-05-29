@@ -20,10 +20,8 @@
   [[first-word :as words]]
   (loop [start 0
          end (count words)]
-    (let [mid (midpoint start end)
-          mid-word (words mid)]
+    (let [mid (midpoint start end)]
       (cond
-        ;; TODO: double check for edge conds
         (<= (- end start) 1) end
-        (gt? mid-word first-word) (recur mid end)
-        (lt? mid-word first-word) (recur start mid)))))
+        (gt? (words mid) first-word) (recur mid end)
+        (lt? (words mid) first-word) (recur start mid)))))
