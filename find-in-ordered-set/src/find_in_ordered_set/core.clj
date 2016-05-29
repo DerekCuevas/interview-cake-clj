@@ -8,7 +8,9 @@
 (defn- midpoint [start end]
   (+ (int (/ (- end start) 2)) start))
 
-(defn binary-search [arr item]
+(defn binary-search
+  "O(lgn) - returns index of item in vector (arr), -1 if not found."
+  [arr item]
   (loop [start 0
          end (count arr)]
     (let [mid (midpoint start end)]
