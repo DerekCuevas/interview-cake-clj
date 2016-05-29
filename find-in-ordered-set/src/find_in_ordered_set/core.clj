@@ -1,15 +1,20 @@
 (ns find-in-ordered-set.core
   (:gen-class))
 
-(defn binary-search
-  "O(lgn) - returns index of item in vector (arr), -1 if not found."
-  ([arr item]
-    (binary-search arr item 0))
-  ([arr item base-idx]
-    (let [mid (int (/ (count arr) 2))]
+(def ^:private gt? (comp pos? compare))
+(def ^:private lt? (comp neg? compare))
+(def ^:private eq? (comp zero? compare))
+
+(defn- midpoint [start end]
+  (+ (int (/ (- end start) 2)) start))
+
+(defn binary-search [arr item]
+  (loop [start 0
+         end (count arr)]
+    (let [mid (midpoint start end)]
       (cond
-        (empty? arr) -1
-        (= (count arr) 1) (if (= (arr 0) item) 0 -1)
-        (= (arr mid) item) (+ base-idx mid)
-        (> (arr mid) item) (recur (subvec arr 0 mid) item base-idx)
-        (< (arr mid) item) (recur (subvec arr mid) item (+ base-idx mid))))))
+        (zero? (- end start)) -1
+        (= (- end start) 1) (if (eq? (arr start) item) start -1)
+        (eq? (arr mid) item) mid
+        (gt? (arr mid) item) (recur start mid)
+        (lt? (arr mid) item) (recur mid end)))))
