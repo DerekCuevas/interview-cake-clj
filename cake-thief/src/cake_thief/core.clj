@@ -3,10 +3,8 @@
 
 (defn- steel-cakes [{:keys [capacity-left max-value] :as totals} {:keys [weight value]}]
   (let [can-take (int (/ capacity-left weight))]
-    (if (>= can-take 0)
-      {:capacity-left (- capacity-left (* weight can-take))
-       :max-value (+ max-value (* value can-take))}
-      totals)))
+    {:capacity-left (- capacity-left (* weight can-take))
+     :max-value (+ max-value (* value can-take))}))
 
 (defn max-duffel-bag-value-greedy
   "O(nlgn) time solution - greedy approximation"
