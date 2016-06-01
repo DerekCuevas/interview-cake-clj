@@ -2,7 +2,7 @@
   (:require [delete-node.list :as list])
   (:gen-class))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+(defn delete [node]
+  (-> node
+      (assoc :value (get-in node [:next :value]))
+      (assoc :next (get-in node [:next :next]))))
