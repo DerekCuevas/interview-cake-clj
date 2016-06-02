@@ -16,7 +16,7 @@
   (+ (int (/ (- end start) 2)) start))
 
 (defn find-rotation-point-fast
-  "O(lgn) - binary search like solution."
+  "O(lgn) time solution - binary search like."
   [[first-word :as words]]
   (loop [start 0
          end (count words)]
