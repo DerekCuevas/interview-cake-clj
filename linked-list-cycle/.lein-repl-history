@@ -1,8 +1,0 @@
-(use 'linked-list-cycle.core :reload)
-(def l (list/coll->list [3 4 5]))
-(use 'linked-list-cycle.core :reload)
-list-cycle
-(-> {} (assoc :x 0) (assoc :y 6))
-(use 'linked-list-cycle.core :reload)
-list-cycle
-exit
