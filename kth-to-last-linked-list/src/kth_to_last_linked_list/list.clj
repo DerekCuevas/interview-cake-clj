@@ -11,3 +11,10 @@
 
 (defn coll->list [coll]
   (reduce insert {} (reverse coll)))
+
+(defn count [head]
+  (loop [current head
+         count 0]
+    (if (nil? current)
+      count
+      (recur (current :next) (inc count)))))
