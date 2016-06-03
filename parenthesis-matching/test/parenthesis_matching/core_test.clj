@@ -16,7 +16,8 @@
     (is (= (find-closing-parenthesis edge-a 0) 1))
     (is (= (find-closing-parenthesis edge-a 1) -1))
     (is (= (find-closing-parenthesis edge-b 2) 3))
-    (is (= (find-closing-parenthesis edge-c 1) 2)))
+    (is (= (find-closing-parenthesis edge-c 1) 2))
+    (is (= (find-closing-parenthesis edge-c 10) -1)))
   (testing "should return index of closing parenthesis"
     (is (= (find-closing-parenthesis str-a 10) 79))
     (is (= (find-closing-parenthesis str-a 28) 46))
@@ -24,5 +25,5 @@
     (is (= (find-closing-parenthesis str-c 0) (dec (count str-c))))
     (is (= (find-closing-parenthesis str-d 0) (dec (count str-d))))
     (is (= (find-closing-parenthesis str-b 7) 12))
-    (is (= (find-closing-parenthesis str-a 14) 19))
-    (is (= (find-closing-parenthesis str-d 14) 33))))
+    (is (= (find-closing-parenthesis str-d 14) 33))
+    (is (= (find-closing-parenthesis str-d 24) 32))))
