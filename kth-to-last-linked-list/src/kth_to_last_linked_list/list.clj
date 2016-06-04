@@ -2,19 +2,17 @@
   (:gen-class))
 
 (defn node [value]
-  {:value value :next nil})
+  {:value value :next nil :count 1})
 
 (defn insert [head value]
   (if (empty? head)
     (node value)
-    (assoc (node value) :next head)))
+    (-> (node value)
+        (assoc :next head)
+        (assoc :count (inc (head :count))))))
 
 (defn coll->list [coll]
   (reduce insert {} (reverse coll)))
 
-(defn count [head]
-  (loop [current head
-         count 0]
-    (if (nil? current)
-      count
-      (recur (current :next) (inc count)))))
+(defn count-list [head]
+  (head :count 0))
