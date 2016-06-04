@@ -11,12 +11,14 @@
 (def edge-a "[]")
 (def edge-b ")")
 (def edge-c "{")
+(def edge-d "{[(({{[[")
 
 (deftest valid-brackets?-test
   (testing "edge cases"
     (is (= (valid-brackets? edge-a) true))
     (is (= (valid-brackets? edge-b) false))
-    (is (= (valid-brackets? edge-c) false)))
+    (is (= (valid-brackets? edge-c) false))
+    (is (= (valid-brackets? edge-d) false)))
   (testing "checks validity of brackets"
     (is (= (valid-brackets? str-a) true))
     (is (= (valid-brackets? str-b) false))

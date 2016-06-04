@@ -1,5 +1,25 @@
 (ns bracket-validator.core
   (:gen-class))
 
-(defn valid-brackets? [s]
-  false)
+(def ^:private openers #{\( \{ \[})
+(def ^:private closers #{\) \} \]})
+(def ^:private closer->opener {\) \( \} \{ \] \[})
+
+(defn- update-stack [stack char]
+  (cond
+    (contains? openers char)
+      (conj stack char)
+    (contains? closers char)
+      (if (= (peek stack) (closer->opener char))
+        (pop stack)
+        (reduced :invalid))
+    :else
+      stack))
+
+(defn valid-brackets?
+  "O(n) time & space solution - using a stack."
+  [s]
+  (let [stack (reduce update-stack [] s)]
+    (if (= stack :invalid)
+      false
+      (empty? stack))))
