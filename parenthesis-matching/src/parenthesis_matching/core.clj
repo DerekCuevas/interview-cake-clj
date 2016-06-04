@@ -8,7 +8,7 @@
     -1
     (reduce-kv (fn [stack idx char]
                  (cond
-                   (and (= 1 (count stack)) (= \) char))
+                   (and (= \) char) (= (count stack) 1))
                      (reduced (+ open-idx idx))
                    (= \( char)
                      (conj stack char)
