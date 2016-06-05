@@ -10,7 +10,7 @@
 
 (def str-e (str/join (shuffle (vec "racecar"))))
 (def str-f (str/join (shuffle (vec "civic"))))
-(def str-g (str/join (shuffle (vec "toyota"))))
+(def str-g (str/join (shuffle (vec "abcba"))))
 (def str-h (str/join (shuffle (vec "palindrome"))))
 
 (def edge-a "")
