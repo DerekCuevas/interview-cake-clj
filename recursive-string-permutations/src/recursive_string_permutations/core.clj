@@ -6,7 +6,7 @@
        (subs s (inc idx) (count s))))
 
 (defn permutations [s]
-  (if (= (count s) 1)
+  (if (<= (count s) 1)
     #{s}
     (reduce-kv (fn [permutations-so-far idx char]
                  (into permutations-so-far
