@@ -5,7 +5,9 @@
   (str (subs s 0 idx)
        (subs s (inc idx) (count s))))
 
-(defn permutations [s]
+(defn permutations
+  "O(n!) time solution - recursively computing permutations."
+  [s]
   (if (<= (count s) 1)
     #{s}
     (reduce-kv
