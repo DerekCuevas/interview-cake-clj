@@ -8,9 +8,10 @@
 (defn permutations [s]
   (if (<= (count s) 1)
     #{s}
-    (reduce-kv (fn [permutations-so-far idx char]
-                 (into permutations-so-far
-                       (map (partial str char)
-                            (permutations (remaining-str s idx)))))
-               #{}
-               (vec s))))
+    (reduce-kv
+      (fn [permutations-so-far idx char]
+        (into permutations-so-far
+          (map (partial str char)
+               (permutations (remaining-str s idx)))))
+      #{}
+      (vec s))))
