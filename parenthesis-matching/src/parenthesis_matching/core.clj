@@ -6,15 +6,16 @@
   [s open-idx]
   (if (>= open-idx (dec (count s)))
     -1
-    (reduce-kv (fn [stack idx char]
-                 (cond
-                   (and (= \) char) (= (count stack) 1))
-                     (reduced (+ open-idx idx))
-                   (= \( char)
-                     (conj stack char)
-                   (= \) char)
-                     (pop stack)
-                   :else
-                     stack))
-               []
-               (vec (subs s open-idx)))))
+    (reduce-kv
+      (fn [stack idx char]
+        (cond
+          (and (= \) char) (= (count stack) 1))
+            (reduced (+ open-idx idx))
+          (= \( char)
+            (conj stack char)
+          (= \) char)
+            (pop stack)
+          :else
+            stack))
+      []
+      (vec (subs s open-idx)))))
