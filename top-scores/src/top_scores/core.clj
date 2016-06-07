@@ -9,7 +9,7 @@
     coll))
 
 (defn counting-sort
-  "O(n) time & space solution"
+  "O(n) time & O(k) space solution, where k = max-value."
   [coll max-value]
   (reduce-kv
     (fn [sorted value count]
