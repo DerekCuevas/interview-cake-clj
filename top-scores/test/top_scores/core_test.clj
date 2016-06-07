@@ -2,8 +2,7 @@
   (:require [clojure.test :refer :all]
             [top-scores.core :refer :all]))
 
-(defn ordered? [coll]
-  (apply <= coll))
+(defn ordered? [coll] (apply <= coll))
 
 (def coll-a (shuffle [5 3 4 8]))
 (def coll-b (shuffle [45 78 2 4 9 99 100 23 17]))

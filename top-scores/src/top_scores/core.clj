@@ -1,5 +1,18 @@
 (ns top-scores.core
   (:gen-class))
 
-(defn counting-sort [coll max-value]
-  coll)
+(defn- count-items [coll max-value]
+  (reduce
+    (fn [counts value]
+      (assoc counts value (inc (counts value))))
+    (vec (take (inc max-value) (repeat 0)))
+    coll))
+
+(defn counting-sort
+  "O(n) time & space solution"
+  [coll max-value]
+  (reduce-kv
+    (fn [sorted value count]
+      (into sorted (take count (repeat value))))
+    []
+    (count-items coll max-value)))
