@@ -12,7 +12,7 @@
 (def map-b {"add" 2 "milk" 1 "and" 2 "eggs" 1 "then" 1 "flour" 1 "sugar" 1})
 (def map-c {"hi" 1 "how" 1 "are" 1 "you" 1})
 (def map-d {"what" 2 "when" 3 "where" 2 "why" 2 "i" 1 "don't" 1 "know" 1})
-(def map-e {"hello" 2 "bye" 2 "hi" 4})
+(def map-e {"hello" 2 "bye" 3 "hi" 4})
 
 (deftest word-cloud-test
   (testing "Counts frequencies of words, ignores punctuation."
