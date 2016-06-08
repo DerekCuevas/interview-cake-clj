@@ -13,6 +13,6 @@
   [coll max-value]
   (reduce-kv
     (fn [sorted value count]
-      (into sorted (take count (repeat value))))
+      (into sorted (replicate count value)))
     []
     (int-frequencies coll max-value)))
