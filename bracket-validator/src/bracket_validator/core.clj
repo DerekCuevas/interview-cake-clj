@@ -17,7 +17,7 @@
       stack))
 
 (defn valid-brackets?
-  "O(n + k) time solution, where k = number of brackets - using a stack."
+  "O(n) time & O(k) space solution, where k = number of brackets - using a stack."
   [s]
   (let [stack (reduce update-stack [] s)]
     (if (= stack :invalid)

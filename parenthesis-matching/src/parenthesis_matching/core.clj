@@ -2,7 +2,7 @@
   (:gen-class))
 
 (defn find-closing-parenthesis
-  "O(n + k) time solution, where k = number of parenthesis - using a stack."
+  "O(n) time & O(k) space solution, where k = number of parenthesis - using a stack."
   [s open-idx]
   (if (>= open-idx (dec (count s)))
     -1
