@@ -30,11 +30,16 @@
 (def edge-c-half-b [4])
 (def edge-c-shuffled-a [4 7])
 
+(def edge-d-half-a [1 7 0 9])
+(def edge-d-half-b [4 8])
+(def edge-d-shuffled-a [1 7 0 4 8 9])
+
 (deftest single-riffle-shuffle?-test
   (testing "edge cases"
     (is (= (single-riffle-shuffle? edge-a-shuffled-a edge-a-half-a edge-a-half-b) true))
     (is (= (single-riffle-shuffle? edge-b-shuffled-a edge-b-half-a edge-b-half-b) true))
-    (is (= (single-riffle-shuffle? edge-c-shuffled-a edge-c-half-a edge-c-half-b) false)))
+    (is (= (single-riffle-shuffle? edge-c-shuffled-a edge-c-half-a edge-c-half-b) false))
+    (is (= (single-riffle-shuffle? edge-d-shuffled-a edge-d-half-a edge-d-half-b) true)))
   (testing "Returns true if shuffled deck was single riffle shuffled."
     (is (= (single-riffle-shuffle? shuffled-a half-a-a half-a-b) true))
     (is (= (single-riffle-shuffle? shuffled-b half-b-a half-b-b) false))
