@@ -8,11 +8,11 @@
   "O(n) time solution - can't do this in-place ~ but can use similar algorithm."
   [arr]
   (loop [idx 0
-         arr arr
          shuffled arr]
     (if (= idx (count arr))
       shuffled
       (let [rand-idx (random idx (dec (count arr)))]
         (recur (inc idx)
-               (assoc arr rand-idx (shuffled idx))
-               (assoc shuffled idx (arr rand-idx)))))))
+               (-> shuffled
+                   (assoc rand-idx (shuffled idx))
+                   (assoc idx (shuffled rand-idx))))))))
