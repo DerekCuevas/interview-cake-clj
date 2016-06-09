@@ -1,7 +1,7 @@
 (ns in-place-shuffle.core
   (:gen-class))
 
-(defn random [floor ceiling]
+(defn- random [floor ceiling]
   (+ (int (* (rand) (inc (- ceiling floor)))) floor))
 
 (defn fisher-yates-shuffle
