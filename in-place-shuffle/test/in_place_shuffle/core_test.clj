@@ -9,14 +9,7 @@
 
 (deftest a-test
   (testing "FIXME, I fail."
-    (is (= (count (fisher-yates-shuffle vector-a)) (count vector-a)))
     (is (= (sort (fisher-yates-shuffle vector-a)) (sort vector-a)))
-
-    (is (= (count (fisher-yates-shuffle vector-b)) (count vector-b)))
     (is (= (sort (fisher-yates-shuffle vector-b)) (sort vector-b)))
-
-    (is (= (count (fisher-yates-shuffle vector-c)) (count vector-c)))
     (is (= (sort (fisher-yates-shuffle vector-c)) (sort vector-c)))
-
-    (is (= (count (fisher-yates-shuffle vector-d)) (count vector-d)))
     (is (= (sort (fisher-yates-shuffle vector-d)) (sort vector-d)))))
