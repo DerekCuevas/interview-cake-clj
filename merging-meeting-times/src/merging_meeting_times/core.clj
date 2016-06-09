@@ -13,9 +13,10 @@
   "O(nlgn) soluting - sorting input meeting times."
   [meeting-times]
   (let [sorted-meeting-times (sort-by :start meeting-times)]
-    (reduce (fn [merged-so-far meeting]
-              (if-let [merged (merge-if-overlap (last merged-so-far) meeting)]
-                (conj (pop merged-so-far) merged)
-                (conj merged-so-far meeting)))
-            [(first sorted-meeting-times)]
-            (rest sorted-meeting-times))))
+    (reduce
+      (fn [merged-so-far meeting]
+        (if-let [merged (merge-if-overlap (last merged-so-far) meeting)]
+          (conj (pop merged-so-far) merged)
+          (conj merged-so-far meeting)))
+      [(first sorted-meeting-times)]
+      (rest sorted-meeting-times))))

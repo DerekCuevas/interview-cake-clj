@@ -10,17 +10,18 @@
   and (replace? n) is true. Will select blindly if k is greater than
   the length of selected."
   [k coll replace? select]
-  (reduce (fn [selected n]
-            (let [to-replace (select selected)]
-              (cond
-                (< (count selected) k)
-                  (conj selected n)
-                (and (some? to-replace) (replace? n to-replace))
-                  (conj (disj selected to-replace) n)
-                :else
-                  selected)))
-          #{}
-          coll))
+  (reduce
+    (fn [selected n]
+      (let [to-replace (select selected)]
+        (cond
+          (< (count selected) k)
+            (conj selected n)
+          (and (some? to-replace) (replace? n to-replace))
+            (conj (disj selected to-replace) n)
+          :else
+            selected)))
+    #{}
+    coll))
 
 (defn- select-k-maxs [k coll]
   (select-k k coll > #(when (not-empty %) (apply min %))))

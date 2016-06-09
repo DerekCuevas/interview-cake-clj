@@ -1,11 +1,11 @@
 (ns top-scores.core
   (:gen-class))
 
-(defn- int-frequencies [coll max-value]
+(defn- int-frequencies [coll max-int]
   (reduce
     (fn [counts value]
       (assoc counts value (inc (counts value))))
-    (vec (replicate (inc max-value) 0))
+    (vec (replicate (inc max-int) 0))
     coll))
 
 (defn counting-sort
