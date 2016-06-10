@@ -7,8 +7,14 @@
 (def vector-c [6 7 2 9 8 1 3])
 (def vector-d [23 88 6 54 23 40 91 66 78 20 12 102])
 
+(def edge-a [])
+(def edge-b [3])
+
 (deftest fisher-yates-shuffle-test
-  (testing "Shuffles items in vector, preserves items and count of vector."
+  (testing "edge cases"
+    (is (= (fisher-yates-shuffle edge-a) []))
+    (is (= (fisher-yates-shuffle edge-b) [3])))
+  (testing "shuffles items in vector, preserves items and count of vector"
     (is (= (sort (fisher-yates-shuffle vector-a)) (sort vector-a)))
     (is (= (sort (fisher-yates-shuffle vector-b)) (sort vector-b)))
     (is (= (sort (fisher-yates-shuffle vector-c)) (sort vector-c)))

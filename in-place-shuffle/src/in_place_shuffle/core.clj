@@ -2,7 +2,7 @@
   (:gen-class))
 
 (defn- random [floor ceiling]
-  (+ (int (* (rand) (inc (- ceiling floor)))) floor))
+  (+ floor (rand-int (inc (- ceiling floor)))))
 
 (defn fisher-yates-shuffle
   "O(n) time solution - can't do this in-place ~ but can use similar algorithm."
