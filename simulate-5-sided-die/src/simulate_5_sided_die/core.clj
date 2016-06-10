@@ -8,4 +8,7 @@
   (random 1 7))
 
 (defn rand5 []
-  -1)
+  (loop [rand (rand7)]
+    (if (<= rand 5)
+      rand
+      (recur (rand7)))))
