@@ -11,12 +11,12 @@
 (def ^:private MARGIN_OF_ERROR (/ (- LIMIT_FREQUENCY EXPECTED_FREQUENCY) 16))
 
 (defn- within-margin-of-error? [freq]
-  (and (>= freq (- EXPECTED_FREQUENCY MARGIN_OF_ERROR))
-       (<= freq (+ EXPECTED_FREQUENCY MARGIN_OF_ERROR))))
+  (<= (- EXPECTED_FREQUENCY MARGIN_OF_ERROR)
+      freq
+      (+ EXPECTED_FREQUENCY MARGIN_OF_ERROR)))
 
 (defn- within-range? [value]
-  (and (>= value MIN)
-       (<= value MAX)))
+  (<= MIN value MAX))
 
 (deftest rand5-test
   (let [sample (take SAMPLE_SIZE (repeatedly rand5))
