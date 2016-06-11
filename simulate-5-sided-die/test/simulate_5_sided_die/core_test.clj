@@ -11,10 +11,7 @@
 (def ^:private MARGIN_OF_ERROR (/ (- LIMIT_FREQUENCY EXPECTED_FREQUENCY) 16))
 
 (defn- rand5-seq [n]
-  (reduce
-    (fn [rs _] (conj rs (rand5)))
-    []
-    (range n)))
+  (take n (repeatedly rand5)))
 
 (defn- within-margin-of-error? [freq]
   (and (>= freq (- EXPECTED_FREQUENCY MARGIN_OF_ERROR))
