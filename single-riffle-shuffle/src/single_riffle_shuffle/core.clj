@@ -10,11 +10,9 @@
     (cond
       (= idx-shuffled (count shuffled))
         true
-      (and (contains? half-a idx-a)
-           (= (half-a idx-a) (shuffled idx-shuffled)))
+      (= (get half-a idx-a) (get shuffled idx-shuffled))
         (recur (inc idx-a) idx-b (inc idx-shuffled))
-      (and (contains? half-b idx-b)
-           (= (half-b idx-b) (shuffled idx-shuffled)))
+      (= (get half-b idx-b) (get shuffled idx-shuffled))
         (recur idx-a (inc idx-b) (inc idx-shuffled))
       :else
         false)))
