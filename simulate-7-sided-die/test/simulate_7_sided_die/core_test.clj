@@ -10,9 +10,6 @@
 (def ^:private LIMIT_FREQUENCY (* SAMPLE_SIZE (/ (inc MIN) MAX)))
 (def ^:private MARGIN_OF_ERROR (/ (- LIMIT_FREQUENCY EXPECTED_FREQUENCY) 16))
 
-(defn- rand7-seq [n]
-  (take n (repeatedly rand7)))
-
 (defn- within-margin-of-error? [freq]
   (and (>= freq (- EXPECTED_FREQUENCY MARGIN_OF_ERROR))
        (<= freq (+ EXPECTED_FREQUENCY MARGIN_OF_ERROR))))
@@ -21,8 +18,10 @@
   (and (>= value MIN) (<= value MAX)))
 
 (deftest rand7-test
-  (let [sample (rand7-seq SAMPLE_SIZE)]
+  (let [sample (take SAMPLE_SIZE (repeatedly rand7))
+        sample-frequencies (frequencies sample)]
     (testing "probablity distribution"
-      (is (every? within-margin-of-error? (vals (frequencies sample)))))
+      (is (= MAX (count (keys sample-frequencies))))
+      (is (every? within-margin-of-error? (vals sample-frequencies))))
     (testing "range check"
       (is (every? within-range? sample)))))
