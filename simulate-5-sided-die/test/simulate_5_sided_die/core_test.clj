@@ -2,8 +2,11 @@
   (:require [clojure.test :refer :all]
             [simulate-5-sided-die.core :refer :all]))
 
+(def ^:private MIN 1)
+(def ^:private MAX 5)
+
 (def ^:private SAMPLE_SIZE 10000)
-(def ^:private EXPECTED_DISTRIBUTION (/ SAMPLE_SIZE 5))
+(def ^:private EXPECTED_DISTRIBUTION (/ SAMPLE_SIZE MAX))
 (def ^:private MARGIN_OF_ERROR 100)
 
 (defn- rand5-seq [n]
@@ -17,7 +20,7 @@
        (<= freq (+ EXPECTED_DISTRIBUTION MARGIN_OF_ERROR))))
 
 (defn- within-range? [value]
-  (and (>= value 1) (<= value 5)))
+  (and (>= value MIN) (<= value MAX)))
 
 (deftest rand5-test
   (testing "probablity distribution"
