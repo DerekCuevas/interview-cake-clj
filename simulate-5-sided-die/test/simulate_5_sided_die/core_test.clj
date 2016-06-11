@@ -15,13 +15,14 @@
        (<= freq (+ EXPECTED_FREQUENCY MARGIN_OF_ERROR))))
 
 (defn- within-range? [value]
-  (and (>= value MIN) (<= value MAX)))
+  (and (>= value MIN)
+       (<= value MAX)))
 
 (deftest rand5-test
-  (let [random-sample (take SAMPLE_SIZE (repeatedly rand5))
-        sample-frequencies (frequencies random-sample)]
+  (let [sample (take SAMPLE_SIZE (repeatedly rand5))
+        sample-frequencies (frequencies sample)]
     (testing "probablity distribution"
       (is (= MAX (count (keys sample-frequencies))))
       (is (every? within-margin-of-error? (vals sample-frequencies))))
     (testing "range check"
-      (is (every? within-range? random-sample)))))
+      (is (every? within-range? sample)))))

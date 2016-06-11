@@ -15,7 +15,8 @@
        (<= freq (+ EXPECTED_FREQUENCY MARGIN_OF_ERROR))))
 
 (defn- within-range? [value]
-  (and (>= value MIN) (<= value MAX)))
+  (and (>= value MIN)
+       (<= value MAX)))
 
 (deftest rand7-test
   (let [sample (take SAMPLE_SIZE (repeatedly rand7))
