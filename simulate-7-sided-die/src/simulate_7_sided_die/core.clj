@@ -4,5 +4,8 @@
 (defn- random [floor ceiling]
   (+ floor (rand-int (inc (- ceiling floor)))))
 
+(defn- rand5 []
+  (random 1 5))
+
 (defn rand7 []
-  (random 1 7))
+  -1)
