@@ -7,25 +7,24 @@
 (defn- rand5 []
   (random 1 5))
 
-(def ^:private rand-table
+(def ^:private rand7-matrix
   [[1 2 3 4 5]
    [6 7 1 2 3]
    [4 5 6 7 1]
    [2 3 4 5 6]
    [7 0 0 0 0]])
 
-(defn rand7-table []
+(defn rand7-with-matrix []
   (loop [row (dec (rand5))
          column (dec (rand5))]
     (if (and (= row 4) (> column 0))
       (recur (dec (rand5)) (dec (rand5)))
-      (get-in rand-table [row column]))))
+      (get-in rand7-matrix [row column]))))
 
 (defn rand7 []
   (loop [rand-a (rand5)
          rand-b (rand5)]
-    (let [out (inc (+ (* (dec rand-a) 5)
-                      (dec rand-b)))]
+    (let [out (inc (+ (* (dec rand-a) 5) (dec rand-b)))]
       (if (<= out 21)
         (inc (mod out 7))
         (recur (rand5) (rand5))))))
