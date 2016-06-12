@@ -14,32 +14,17 @@
 (def invalid-c (assoc-in valid-b [:left :right] (tree/node 25)))
 (def invalid-d (assoc-in valid-d [:left :left :left] (tree/node 125)))
 
-(deftest valid-binary-search-tree?-test
+(deftest bst?-test
   (testing "egde cases"
-    (is (= (valid-binary-search-tree? {}) true))
-    (is (= (valid-binary-search-tree? (tree/node 4)) true)))
+    (is (= (bst? {}) true))
+    (is (= (bst? (tree/node 4)) true)))
   (testing "should test weather a binary tree is a valid binary search tree"
-    (is (= (valid-binary-search-tree? valid-a) true))
-    (is (= (valid-binary-search-tree? valid-b) true))
-    (is (= (valid-binary-search-tree? valid-c) true))
-    (is (= (valid-binary-search-tree? valid-d) true))
-    (is (= (valid-binary-search-tree? valid-e) true))
-    (is (= (valid-binary-search-tree? invalid-a) false))
-    (is (= (valid-binary-search-tree? invalid-b) false))
-    (is (= (valid-binary-search-tree? invalid-c) false))
-    (is (= (valid-binary-search-tree? invalid-d) false))))
-
-(deftest valid-binary-search-tree-rec?-test
-  (testing "egde cases"
-    (is (= (valid-binary-search-tree-rec? {}) true))
-    (is (= (valid-binary-search-tree-rec? (tree/node 4)) true)))
-  (testing "should test weather a binary tree is a valid binary search tree"
-    (is (= (valid-binary-search-tree-rec? valid-a) true))
-    (is (= (valid-binary-search-tree-rec? valid-b) true))
-    (is (= (valid-binary-search-tree-rec? valid-c) true))
-    (is (= (valid-binary-search-tree-rec? valid-d) true))
-    (is (= (valid-binary-search-tree-rec? valid-e) true))
-    (is (= (valid-binary-search-tree-rec? invalid-a) false))
-    (is (= (valid-binary-search-tree-rec? invalid-b) false))
-    (is (= (valid-binary-search-tree-rec? invalid-c) false))
-    (is (= (valid-binary-search-tree-rec? invalid-d) false))))
+    (is (= (bst? valid-a) true))
+    (is (= (bst? valid-b) true))
+    (is (= (bst? valid-c) true))
+    (is (= (bst? valid-d) true))
+    (is (= (bst? valid-e) true))
+    (is (= (bst? invalid-a) false))
+    (is (= (bst? invalid-b) false))
+    (is (= (bst? invalid-c) false))
+    (is (= (bst? invalid-d) false))))
