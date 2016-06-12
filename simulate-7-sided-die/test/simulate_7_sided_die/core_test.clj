@@ -8,7 +8,7 @@
 
 (def ^:private EXPECTED_FREQUENCY (* SAMPLE_SIZE (/ MIN MAX)))
 (def ^:private LIMIT_FREQUENCY (* SAMPLE_SIZE (/ (inc MIN) MAX)))
-(def ^:private MARGIN_OF_ERROR (/ (- LIMIT_FREQUENCY EXPECTED_FREQUENCY) 16))
+(def ^:private MARGIN_OF_ERROR (/ (- LIMIT_FREQUENCY EXPECTED_FREQUENCY) 8))
 
 (defn- within-margin-of-error? [freq]
   (<= (- EXPECTED_FREQUENCY MARGIN_OF_ERROR)
