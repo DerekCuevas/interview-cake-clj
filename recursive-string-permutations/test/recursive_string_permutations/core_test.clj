@@ -20,9 +20,10 @@
     "dacb" "dabc" "dbca" "dbac" "dcba" "dcab"})
 
 (deftest permutations-test
-  (testing "should return a set of all permutations of an input string"
+  (testing "edge cases"
     (is (= (permutations "") #{""}))
-    (is (= (permutations "a") permutations-a))
+    (is (= (permutations "a") permutations-a)))
+  (testing "should return a set of all permutations of an input string"
     (is (= (permutations "ab") permutations-b))
     (is (= (permutations "abc") permutations-c))
     (is (= (permutations "abcd") permutations-d))))
