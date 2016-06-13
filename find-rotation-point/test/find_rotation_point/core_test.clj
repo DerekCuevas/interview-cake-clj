@@ -2,54 +2,60 @@
   (:require [clojure.test :refer :all]
             [find-rotation-point.core :refer :all]))
 
-(def words-a ["ptolemaic"
-              "retrograde"
-              "supplant"
-              "undulate"
-              "xenoepist"
-              "asymptote"
-              "babka"
-              "banoffee"
-              "engender"
-              "karpatka"
-              "othellolagkage"])
+(def words-a
+  ["ptolemaic"
+   "retrograde"
+   "supplant"
+   "undulate"
+   "xenoepist"
+   "asymptote"
+   "babka"
+   "banoffee"
+   "engender"
+   "karpatka"
+   "othellolagkage"])
 
-(def words-b ["ptolemaic"
-              "retrograde"
-              "asymptote"
-              "babka"
-              "banoffee"
-              "engender"
-              "karpatka"
-              "othellolagkage"])
+(def words-b
+  ["ptolemaic"
+   "retrograde"
+   "asymptote"
+   "babka"
+   "banoffee"
+   "engender"
+   "karpatka"
+   "othellolagkage"])
 
-(def words-c ["ptolemaic"
-              "supplant"
-              "undulate"
-              "xenoepist"
-              "banoffee"
-              "engender"
-              "othellolagkage"])
+(def words-c
+  ["ptolemaic"
+   "supplant"
+   "undulate"
+   "xenoepist"
+   "banoffee"
+   "engender"
+   "othellolagkage"])
 
-(def words-d ["ptolemaic"
-              "asymptote"
-              "babka"
-              "banoffee"
-              "engender"
-              "karpatka"
-              "othellolagkage"])
+(def words-d
+  ["ptolemaic"
+   "asymptote"
+   "babka"
+   "banoffee"
+   "engender"
+   "karpatka"
+   "othellolagkage"])
 
-(def words-e ["ptolemaic"
-              "retrograde"
-              "supplant"
-              "undulate"
-              "xenoepist"
-              "asymptote"])
+(def words-e
+  ["ptolemaic"
+   "retrograde"
+   "supplant"
+   "undulate"
+   "xenoepist"
+   "asymptote"])
 
-(def words-f ["undulate"
-              "xenoepist"
-              "asymptote"
-              "banoffee"])
+(def words-f
+  ["undulate"
+   "xenoepist"
+   "asymptote"
+   "banoffee"])
 
 (deftest find-rotation-point-test
   (testing "should return index of rotation"
