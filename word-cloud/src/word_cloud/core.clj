@@ -7,13 +7,11 @@
        (str/split s #" ")))
 
 (defn word-cloud
-  "O(n) time & space solution - manually counting frequencies."
+  "O(n) time & space solution - manually counting frequencies w/reduce."
   [s]
   (reduce
     (fn [counts word]
-      (if (contains? counts word)
-        (assoc counts word (inc (counts word)))
-        (assoc counts word 1)))
+      (assoc counts word (inc (get counts word 0))))
     {}
     (normalize s)))
 
