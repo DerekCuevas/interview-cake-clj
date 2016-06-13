@@ -11,7 +11,7 @@
   [s]
   (reduce
     (fn [counts word]
-      (assoc counts word (inc (get counts word 0))))
+      (assoc counts word (inc (counts word 0))))
     {}
     (normalize s)))
 
