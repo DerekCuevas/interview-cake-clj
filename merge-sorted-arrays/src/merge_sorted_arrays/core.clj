@@ -1,7 +1,9 @@
 (ns merge-sorted-arrays.core
   (:gen-class))
 
-(defn merge-vectors [vec-a vec-b]
+(defn merge-vectors
+  "O(n) time & space solution." 
+  [vec-a vec-b]
   (loop [idx-a 0
          idx-b 0
          merged []]
