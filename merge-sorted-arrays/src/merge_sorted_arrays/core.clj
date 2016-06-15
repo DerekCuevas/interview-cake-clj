@@ -1,18 +1,22 @@
 (ns merge-sorted-arrays.core
   (:gen-class))
 
-(defn merge-vectors
-  "O(n) time & space solution." 
-  [vec-a vec-b]
-  (loop [idx-a 0
-         idx-b 0
+(defn merge-colls
+  "O(n) time & space solution."
+  [coll-a coll-b]
+  (loop [coll-a coll-a
+         coll-b coll-b
          merged []]
-    (let [a (get vec-a idx-a)
-          b (get vec-b idx-b)]
+    (let [a (first coll-a)
+          b (first coll-b)]
       (cond
-        (and (nil? a) (nil? b))
+        (and (empty? coll-a) (empty? coll-b))
           merged
-        (or (nil? b) (and (some? a) (< a b)))
-          (recur (inc idx-a) idx-b (conj merged a))
+        (or (nil? b) (and (not (nil? a)) (< a b)))
+          (recur (rest coll-a)
+                 coll-b
+                 (conj merged a))
         :else
-          (recur idx-a (inc idx-b) (conj merged b))))))
+          (recur coll-a
+                 (rest coll-b)
+                 (conj merged b))))))
