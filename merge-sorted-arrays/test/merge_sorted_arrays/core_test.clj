@@ -8,8 +8,6 @@
 (def vec-d (vec (filter even? (range 1000))))
 (def vec-e (vec (filter odd? (range 1000))))
 (def vec-f (vec (range 1000)))
-(def vec-g '(1 2 3))
-(def vec-h '(3 4 7 9 13))
 
 (def edge-a [])
 (def edge-b [5])
@@ -23,6 +21,6 @@
   (testing "should merge sorted collections."
     (is (= (merge-colls vec-a edge-a) vec-a))
     (is (= (merge-colls vec-a vec-b) (concat vec-a vec-b)))
+    (is (= (merge-colls (seq vec-a) (seq vec-b)) (concat vec-a vec-b)))
     (is (= (merge-colls vec-b vec-c) [1 2 3 4 5 7 9 13 23 54 67 89 123 456 789]))
-    (is (= (merge-colls vec-d vec-e) vec-f))
-    (is (= (merge-colls vec-g vec-h) (concat vec-a vec-b)))))
+    (is (= (merge-colls vec-d vec-e) vec-f))))
