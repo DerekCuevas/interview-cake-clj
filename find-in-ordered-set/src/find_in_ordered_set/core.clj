@@ -9,7 +9,7 @@
   (+ (int (/ (- end start) 2)) start))
 
 (defn binary-search
-  "O(lgn) - returns index of item in vector (arr), -1 if not found."
+  "O(lgn) - returns index of item in sorted vector, -1 if not found."
   [arr item]
   (loop [start 0
          end (count arr)]

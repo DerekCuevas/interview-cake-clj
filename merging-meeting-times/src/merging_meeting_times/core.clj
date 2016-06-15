@@ -1,9 +1,7 @@
 (ns merging-meeting-times.core
   (:gen-class))
 
-(defn- merge-if-overlap
-  "Merges meetings if overlap, nil otherwise."
-  [meeting-a meeting-b]
+(defn- merge-if-overlap [meeting-a meeting-b]
   (let [[earlier later] (sort-by :start [meeting-a meeting-b])]
     (when (>= (earlier :end) (later :start))
       {:start (earlier :start)

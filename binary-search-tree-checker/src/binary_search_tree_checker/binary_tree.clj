@@ -57,3 +57,8 @@
   (if (nil? right)
     value
     (recur right)))
+
+(defn smallest [{:keys [value left]}]
+  (if (nil? left)
+    value
+    (recur left)))

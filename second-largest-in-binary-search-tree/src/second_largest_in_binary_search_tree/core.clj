@@ -2,7 +2,9 @@
   (:require [second-largest-in-binary-search-tree.binary-tree :as tree])
   (:gen-class))
 
-(defn second-largest [root]
+(defn second-largest
+  "O(lgn) time solution."
+  [root]
   (loop [parent nil
          current root]
     (if (nil? (current :right))

@@ -8,7 +8,7 @@
      :max-value (+ max-value (* value can-take))}))
 
 (defn max-duffel-bag-value-greedy
-  "O(nlgn) time solution - greedy approximation"
+  "O(nlgn) time solution - greedy approximation."
   [cakes capacity]
   (let [sorted-by-ratio (sort-by #(/ (:value %) (:weight %)) > cakes)]
     ((reduce steel-cakes
@@ -26,13 +26,15 @@
           cakes))
 
 (defn max-duffel-bag-value
-  "O(n*k) time solution, where k = capacity - dynamic and bottom up"
+  "O(n*k) time solution, where k = capacity - dynamic and bottom up."
   [cakes capacity]
   (let [max-value-at-capacity (vec (repeat (inc capacity) 0))]
     ((reduce-kv
       (fn [max-value-at-capacity current-capacity _]
         (assoc max-value-at-capacity
                current-capacity
-               (max-value-for-current-capacity max-value-at-capacity current-capacity cakes)))
+               (max-value-for-current-capacity max-value-at-capacity
+                                               current-capacity
+                                               cakes)))
       max-value-at-capacity
       max-value-at-capacity) capacity)))

@@ -3,7 +3,7 @@
             [compute-nth-fibbonacci-number.core :refer :all]))
 
 (deftest fib-test
-  (testing "fibonacci seq"
+  (testing "fibonacci seq - very basic testing"
     (is (= (fib 0) 0))
     (is (= (fib 1) 1))
     (is (= (fib 2) 1))

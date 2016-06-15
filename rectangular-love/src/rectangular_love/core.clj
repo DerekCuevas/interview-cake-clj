@@ -4,19 +4,19 @@
 (defn- range->length [{:keys [start end]}]
   (- end start))
 
-(defn- intersection
-  "Returns intersection of ranges, nil if no overlap."
-  [range-a range-b]
+(defn- intersection [range-a range-b]
   (let [[first-range second-range] (sort-by :start [range-a range-b])]
     (when (>= (first-range :end) (second-range :start))
       {:start (max (first-range :start) (second-range :start))
        :end (min (first-range :end) (second-range :end))})))
 
 (defn- rect->vertical-range [rect]
-  {:start (rect :y) :end (+ (rect :y) (rect :height))})
+  {:start (rect :y)
+   :end (+ (rect :y) (rect :height))})
 
 (defn- rect->horizontal-range [rect]
-  {:start (rect :x) :end (+ (rect :x) (rect :width))})
+  {:start (rect :x)
+   :end (+ (rect :x) (rect :width))})
 
 (defn- find-vertical-intersection [rect-a rect-b]
   (intersection (rect->vertical-range rect-a)
