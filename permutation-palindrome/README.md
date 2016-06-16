@@ -1,3 +1,3 @@
 # permutation-palindrome
 
-FIXME: description
+https://www.interviewcake.com/question/permutation-palindrome

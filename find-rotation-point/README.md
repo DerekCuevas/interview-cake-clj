@@ -1,3 +1,3 @@
 # find-rotation-point
 
-FIXME: description
+https://www.interviewcake.com/question/find-rotation-point

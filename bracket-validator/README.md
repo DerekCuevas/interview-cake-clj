@@ -1,3 +1,3 @@
 # bracket-validator
 
-FIXME: description
+https://www.interviewcake.com/question/bracket-validator

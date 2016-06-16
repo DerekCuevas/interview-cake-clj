@@ -1,3 +1,3 @@
 # highest-product-of-three
 
-FIXME: description
+https://www.interviewcake.com/question/highest-product-of-3

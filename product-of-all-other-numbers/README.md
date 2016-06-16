@@ -1,3 +1,3 @@
 # product-of-all-other-numbers
 
-FIXME: description
+https://www.interviewcake.com/question/product-of-other-numbers

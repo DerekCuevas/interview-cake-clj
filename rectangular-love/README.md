@@ -1,3 +1,3 @@
 # rectangular-love
 
-FIXME: description
+https://www.interviewcake.com/question/rectangular-love

@@ -1,3 +1,3 @@
 # merging-meeting-times
 
-FIXME: description
+https://www.interviewcake.com/question/merging-ranges

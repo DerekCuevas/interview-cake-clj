@@ -1,3 +1,3 @@
 # find-in-ordered-set
 
-FIXME: description
+https://www.interviewcake.com/question/find-in-ordered-set

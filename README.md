@@ -9,7 +9,6 @@
 - [cake-thief](cake-thief/)
 - [the-stolen-breakfast-drone](the-stolen-breakfast-drone/)
 - [kth-to-last-linked-list](kth-to-last-linked-list/)
-- [bracket-validator](bracket-validator/)
 - [permutation-palindrome](permutation-palindrome/)
 - [recursive-string-permutations](recursive-string-permutations/)
 - [top-scores](top-scores/)
@@ -20,7 +19,6 @@
 ### Problems Not Completed
 - making-change (todo)
 - find-repeat-space-edition (todo)
-
 - temperature-tracker (todo remove this)
 - million-gazillion
 - javascript-scope
