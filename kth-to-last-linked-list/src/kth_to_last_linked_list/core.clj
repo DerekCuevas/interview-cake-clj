@@ -3,7 +3,7 @@
   (:gen-class))
 
 (defn kth-to-last-node
-  "O(n) time solution"
+  "O(n) time solution."
   [head k]
   (let [length (list/count-list head)
         k-idx (- (dec length) k)]

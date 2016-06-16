@@ -1,3 +1,3 @@
 # in-place-shuffle
 
-FIXME: description
+https://www.interviewcake.com/question/shuffle

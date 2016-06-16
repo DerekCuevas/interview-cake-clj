@@ -3,7 +3,7 @@
   (:gen-class))
 
 (defn reverse-list
-  "O(n) time & space - not in-place"
+  "O(n) time & space - not in-place, returns new list."
   [head]
   (loop [head head
          reversed nil]

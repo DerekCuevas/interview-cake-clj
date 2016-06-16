@@ -40,7 +40,7 @@
     (is (= (single-riffle-shuffle? edge-b-shuffled-a edge-b-half-a edge-b-half-b) true))
     (is (= (single-riffle-shuffle? edge-c-shuffled-a edge-c-half-a edge-c-half-b) false))
     (is (= (single-riffle-shuffle? edge-d-shuffled-a edge-d-half-a edge-d-half-b) true)))
-  (testing "Returns true if shuffled deck was single riffle shuffled."
+  (testing "returns true if shuffled deck was a single riffle shuffle of both halfs"
     (is (= (single-riffle-shuffle? shuffled-a half-a-a half-a-b) true))
     (is (= (single-riffle-shuffle? shuffled-b half-b-a half-b-b) false))
     (is (= (single-riffle-shuffle? shuffled-c half-c-a half-c-b) true))

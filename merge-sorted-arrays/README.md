@@ -1,3 +1,3 @@
 # merge-sorted-arrays
 
-FIXME: description
+https://www.interviewcake.com/question/merge-sorted-arrays

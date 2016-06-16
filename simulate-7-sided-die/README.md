@@ -1,3 +1,3 @@
 # simulate-7-sided-die
 
-FIXME: description
+https://www.interviewcake.com/question/simulate-7-sided-die

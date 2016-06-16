@@ -1,7 +1,7 @@
 (ns recursive-string-permutations.core
   (:gen-class))
 
-(defn- remaining-str [s idx]
+(defn- remaining-subs [s idx]
   (str (subs s 0 idx)
        (subs s (inc idx) (count s))))
 
@@ -14,6 +14,6 @@
       (fn [permutations-so-far idx char]
         (into permutations-so-far
           (map (partial str char)
-               (permutations (remaining-str s idx)))))
+               (permutations (remaining-subs s idx)))))
       #{}
       (vec s))))

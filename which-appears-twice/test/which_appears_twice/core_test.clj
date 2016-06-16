@@ -15,7 +15,7 @@
   (testing "edge cases"
     (is (= (find-dup-in-range edge-a 1) 1))
     (is (= (find-dup-in-range edge-b 2) 2)))
-  (testing "should return duplicate value in range of 1...n"
+  (testing "returns duplicate value in range of 1...n"
     (is (= (find-dup-in-range range-a 3) 3))
     (is (= (find-dup-in-range range-b 4) 2))
     (is (= (find-dup-in-range range-c 9) 4))
@@ -26,7 +26,7 @@
   (testing "edge cases"
     (is (= (find-dup-in-range-with-sum edge-a 1) 1))
     (is (= (find-dup-in-range-with-sum edge-b 2) 2)))
-  (testing "should return duplicate value in range of 1...n"
+  (testing "returns duplicate value in range of 1...n"
     (is (= (find-dup-in-range-with-sum range-a 3) 3))
     (is (= (find-dup-in-range-with-sum range-b 4) 2))
     (is (= (find-dup-in-range-with-sum range-c 9) 4))

@@ -13,20 +13,14 @@
 (def str-g (str/join (shuffle (vec "abcba"))))
 (def str-h (str/join (shuffle (vec "palindrome"))))
 
-(def edge-a "")
-(def edge-b "a")
-(def edge-c "ab")
-(def edge-d "aba")
-(def edge-e "abc")
-
 (deftest permutation-palindrome?-test
   (testing "edge cases"
-    (is (= (permutation-palindrome? edge-a) true))
-    (is (= (permutation-palindrome? edge-b) true))
-    (is (= (permutation-palindrome? edge-c) false))
-    (is (= (permutation-palindrome? edge-d) true))
-    (is (= (permutation-palindrome? edge-e) false)))
-  (testing "Returns true if any permutaion of a string is a palindrome."
+    (is (= (permutation-palindrome? "") true))
+    (is (= (permutation-palindrome? "a") true))
+    (is (= (permutation-palindrome? "ab") false))
+    (is (= (permutation-palindrome? "aba") true))
+    (is (= (permutation-palindrome? "abc") false)))
+  (testing "returns true if any permutaion of a string is a palindrome"
     (is (= (permutation-palindrome? str-a) true))
     (is (= (permutation-palindrome? str-b) true))
     (is (= (permutation-palindrome? str-c) false))

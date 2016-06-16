@@ -15,7 +15,10 @@
 (def map-e {"hello" 2 "bye" 3 "hi" 4})
 
 (deftest word-cloud-test
-  (testing "Counts frequencies of words, ignores punctuation."
+  (testing "edge cases"
+    (is (= (word-cloud "hi") {"hi" 1}))
+    (is (= (word-cloud "hi HI Hi hI hi. hi? hi!") {"hi" 7})))
+  (testing "returns frequencies of words in sentence, ignores case and punctuation."
     (is (= (word-cloud sentence-a) map-a))
     (is (= (word-cloud sentence-b) map-b))
     (is (= (word-cloud sentence-c) map-c))

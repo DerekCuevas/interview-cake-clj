@@ -1,3 +1,3 @@
 # simulate-5-sided-die
 
-FIXME: description
+https://www.interviewcake.com/question/simulate-5-sided-die

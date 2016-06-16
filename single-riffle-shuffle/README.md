@@ -1,3 +1,3 @@
 # single-riffle-shuffle
 
-FIXME: description
+https://www.interviewcake.com/question/single-rifle-check

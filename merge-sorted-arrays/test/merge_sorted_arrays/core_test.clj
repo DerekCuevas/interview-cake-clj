@@ -18,7 +18,7 @@
     (is (= (merge-colls edge-a edge-a) edge-a))
     (is (= (merge-colls edge-a edge-b) edge-b))
     (is (= (merge-colls edge-b edge-c) (concat edge-c edge-b))))
-  (testing "should merge sorted collections."
+  (testing "returns merged sorted collections"
     (is (= (merge-colls vec-a edge-a) vec-a))
     (is (= (merge-colls vec-a vec-b) (concat vec-a vec-b)))
     (is (= (merge-colls (seq vec-a) (seq vec-b)) (concat vec-a vec-b)))

@@ -1,3 +1,3 @@
 # recursive-string-permutations
 
-FIXME: description
+https://www.interviewcake.com/question/recursive-string-permutations

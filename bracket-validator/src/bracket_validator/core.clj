@@ -12,14 +12,13 @@
     (contains? closers char)
       (if (= (peek stack) (closer->opener char))
         (pop stack)
-        (reduced :invalid))
+        (reduced false))
     :else
       stack))
 
 (defn valid-brackets?
   "O(n) time & O(k) space solution, where k = number of brackets - using a stack."
   [s]
-  (let [stack (reduce update-stack [] s)]
-    (if (= stack :invalid)
-      false
-      (empty? stack))))
+  (if-let [stack (reduce update-stack [] s)]
+    (empty? stack)
+    false))
