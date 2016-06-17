@@ -1,28 +1,40 @@
 (ns find-repeat-space-edition.core
   (:gen-class))
 
-(defn- midpoint [floor ceiling]
+(defn- bound [floor ceiling]
+  {:floor floor :ceiling ceiling})
+
+(defn- midpoint [{:keys [floor ceiling]}]
   (+ (int (/ (- ceiling floor) 2)) floor))
 
-(defn- items-in-range [arr floor ceiling]
+(defn- length [{:keys [floor ceiling]}]
+  (inc (- ceiling floor)))
+
+(defn- lower [{:keys [floor ceiling] :as bounds}]
+  (bound floor (midpoint bounds)))
+
+(defn- upper [{:keys [floor ceiling] :as bounds}]
+  (bound (inc (midpoint bounds)) ceiling))
+
+(defn- items-in-bound [arr {:keys [floor ceiling]}]
   (reduce
-    (fn [count item]
+    (fn [in-bound item]
       (if (<= floor item ceiling)
-        (inc count)
-        count))
+        (inc in-bound)
+        in-bound))
     0
     arr))
 
 (defn find-dup
   "O(nlgn) time + O(1) space solution."
   [arr]
-  (loop [floor 1
-         ceiling (dec (count arr))]
-    (let [mid (midpoint floor ceiling)]
+  (loop [bounds (bound 1 (dec (count arr)))]
+    (let [lower-bound (lower bounds)
+          upper-bound (upper bounds)]
       (cond
-        (>= floor ceiling)
-          floor
-        (> (items-in-range arr floor mid) (inc (- mid floor)))
-          (recur floor mid)
+        (>= (bounds :floor) (bounds :ceiling))
+          (bounds :floor)
+        (> (items-in-bound arr lower-bound) (length lower-bound))
+          (recur lower-bound)
         :else
-          (recur (inc mid) ceiling)))))
+          (recur upper-bound)))))
