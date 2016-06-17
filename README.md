@@ -9,12 +9,12 @@
 - [cake-thief](cake-thief/)
 - [the-stolen-breakfast-drone](the-stolen-breakfast-drone/)
 - [kth-to-last-linked-list](kth-to-last-linked-list/)
-- [permutation-palindrome](permutation-palindrome/)
 - [recursive-string-permutations](recursive-string-permutations/)
 - [top-scores](top-scores/)
 - [in-place-shuffle](in-place-shuffle/)
 - [simulate-5-sided-die](simulate-5-sided-die/)
 - [simulate-7-sided-die](simulate-7-sided-die/)
+- [find-repeat-space-edition](find-repeat-space-edition/)
 
 ## Problems Not Completed
 - making-change (todo)

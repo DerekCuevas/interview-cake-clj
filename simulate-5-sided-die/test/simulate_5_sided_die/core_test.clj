@@ -25,4 +25,4 @@
       (is (= MAX (count (keys sample-frequencies))))
       (is (every? within-margin-of-error? (vals sample-frequencies))))
     (testing "range check"
-      (is (every? within-range? sample)))))
+      (is (every? within-range? (keys sample-frequencies))))))
