@@ -4,7 +4,7 @@
 (defn- midpoint [floor ceiling]
   (+ (int (/ (- ceiling floor) 2)) floor))
 
-(defn- occurrences-in-range [arr floor ceiling]
+(defn- items-in-range [arr floor ceiling]
   (reduce
     (fn [count item]
       (if (<= floor item ceiling)
@@ -13,7 +13,7 @@
     0
     arr))
 
-(defn find-repeat
+(defn find-dup
   "O(nlgn) time + O(1) space solution."
   [arr]
   (loop [floor 1
@@ -22,7 +22,7 @@
       (cond
         (>= floor ceiling)
           floor
-        (> (occurrences-in-range arr floor mid) (inc (- mid floor)))
+        (> (items-in-range arr floor mid) (inc (- mid floor)))
           (recur floor mid)
         :else
           (recur (inc mid) ceiling)))))

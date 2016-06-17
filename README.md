@@ -1,6 +1,6 @@
 # Interview Cake Clojure Solutions
 
-### Favorite Problems
+## Favorite Problems
 - [merging-meeting-times](merging-meeting-times/)
 - [rectangular-love](rectangular-love/)
 - [balanced-binary-tree](balanced-binary-tree/)
@@ -16,7 +16,7 @@
 - [simulate-5-sided-die](simulate-5-sided-die/)
 - [simulate-7-sided-die](simulate-7-sided-die/)
 
-### Problems Not Completed
+## Problems Not Completed
 - making-change (todo)
 - find-duplicate-files (todo?)
 
@@ -40,6 +40,6 @@
 - highest-product-of-three
 - parenthesis-matching
 
-### Todo's
+## Todo's
 - unit test messages - make sentences
 - add test-all script
