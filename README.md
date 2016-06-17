@@ -18,20 +18,23 @@
 
 ### Problems Not Completed
 - making-change (todo)
-- find-repeat-space-edition (todo)
+- find-duplicate-files (todo?)
 
 - temperature-tracker (todo remove this)
-- million-gazillion
-- javascript-scope
-- what's-wrong-with-this-javascript
 - queue-two-stacks
 - largest-stack
-- delete-node
-- linked-list-cycles
+
+#### Mostly Conceptual
+- million-gazillion
 - two-egg-problem
 - find-repeat-space-edition, BEAST MODE
-- find-duplicate-files
 - url-shortener
+
+#### Can Not Implement in Clojure (?)
+- delete-node
+- linked-list-cycles
+- javascript-scope
+- what's-wrong-with-this-javascript
 
 ### Needs Work
 - highest-product-of-three
@@ -40,4 +43,3 @@
 ### Todo's
 - unit test messages - make sentences
 - add test-all script
-- add links to readmes
