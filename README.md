@@ -19,16 +19,15 @@
 ### Problems Not Completed
 - making-change (todo)
 - find-repeat-space-edition (todo)
+
 - temperature-tracker (todo remove this)
 - million-gazillion
 - javascript-scope
 - what's-wrong-with-this-javascript
 - queue-two-stacks
 - largest-stack
-- delete-node (todo remove this)
+- delete-node
 - linked-list-cycles
-- reverse-string-in-place
-- reverse-words (todo remove this)
 - two-egg-problem
 - find-repeat-space-edition, BEAST MODE
 - find-duplicate-files

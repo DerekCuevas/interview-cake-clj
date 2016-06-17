@@ -3,6 +3,7 @@
   (:gen-class))
 
 ;; This problem gets much more challenging in-place with mutable strings
+;; not going to attempt
 (defn reverse-words
   "O(n) time solution - using built in functions"
   [s]

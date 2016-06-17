@@ -1,3 +1,0 @@
-# delete-node
-
-FIXME: description
