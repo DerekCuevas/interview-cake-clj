@@ -14,5 +14,5 @@
 (defn coll->list [coll]
   (reduce insert {} (reverse coll)))
 
-(defn count-list [head]
+(defn length [head]
   (head :count 0))
