@@ -1,4 +1,5 @@
 # Interview Cake Clojure Solutions
+This repo contains most (x/44) solutions (with corresponding unit tests) for the problems on [interview cake](). Implemented in Clojure as idiomatically as possible; eg. avoiding mutation, side effects, and, ...
 
 ## Favorite Problems
 - [merging-meeting-times](merging-meeting-times/)
@@ -19,7 +20,6 @@
 ## Problems Not Completed
 - making-change (todo)
 - find-duplicate-files (todo?)
-
 - temperature-tracker (todo remove this)
 - queue-two-stacks
 - largest-stack
