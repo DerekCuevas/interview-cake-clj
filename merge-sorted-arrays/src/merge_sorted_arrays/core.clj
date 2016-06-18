@@ -13,10 +13,6 @@
         (and (empty? coll-a) (empty? coll-b))
           merged
         (or (nil? b) (and (not (nil? a)) (< a b)))
-          (recur (rest coll-a)
-                 coll-b
-                 (conj merged a))
+          (recur (rest coll-a) coll-b (conj merged a))
         :else
-          (recur coll-a
-                 (rest coll-b)
-                 (conj merged b))))))
+          (recur coll-a (rest coll-b) (conj merged b))))))
