@@ -13,6 +13,6 @@
            (recur (inc higher-amount)
                   (update ways-of-doing-n-cents
                           higher-amount
-                          (partial + (ways-of-doing-n-cents (- higher-amount coin))))))))
+                          #(+ % (ways-of-doing-n-cents (- higher-amount coin))))))))
      (vec (conj (replicate amount 0) 1))
      denominations) amount))
