@@ -7,7 +7,6 @@ This repo contains most (x/44) solutions (with corresponding unit tests) for the
 - [balanced-binary-tree](balanced-binary-tree/)
 - [find-rotation-point](find-rotation-point/)
 - [inflight-entertainment](inflight-entertainment/)
-- [cake-thief](cake-thief/)
 - [the-stolen-breakfast-drone](the-stolen-breakfast-drone/)
 - [kth-to-last-linked-list](kth-to-last-linked-list/)
 - [recursive-string-permutations](recursive-string-permutations/)
@@ -16,6 +15,7 @@ This repo contains most (x/44) solutions (with corresponding unit tests) for the
 - [simulate-5-sided-die](simulate-5-sided-die/)
 - [simulate-7-sided-die](simulate-7-sided-die/)
 - [find-repeat-space-edition](find-repeat-space-edition/)
+- [making-change](making-change/)
 
 ## Problems Not Completed
 - making-change (todo)
