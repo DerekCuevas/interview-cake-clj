@@ -11,9 +11,8 @@
          (if (> higher-amount amount)
            ways-of-doing-n-cents
            (recur (inc higher-amount)
-                  (assoc ways-of-doing-n-cents
-                         higher-amount
-                         (+ (ways-of-doing-n-cents higher-amount)
-                            (ways-of-doing-n-cents (- higher-amount coin))))))))
+                  (update ways-of-doing-n-cents
+                          higher-amount
+                          (partial + (ways-of-doing-n-cents (- higher-amount coin))))))))
      (vec (conj (replicate amount 0) 1))
      denominations) amount))
