@@ -2,13 +2,13 @@
   (:require [clojure.test :refer :all]
             [making-change.core :refer :all]))
 
-(def denominations-a [1 2 3])
-(def denominations-b [1 2 3 4 5])
-(def denominations-c [2 5 8 9])
+(def denominations-a #{1 2 3})
+(def denominations-b #{1 2 3 4 5})
+(def denominations-c #{2 5 8 9})
 
-(def edge-denominations-a [1])
-(def edge-denominations-b [1 2])
-(def edge-denominations-c [100 200])
+(def edge-denominations-a #{1})
+(def edge-denominations-b #{1 2})
+(def edge-denominations-c #{100 200})
 
 (deftest ways-to-make-amount-test
   (testing "edge cases"
