@@ -17,17 +17,17 @@
               (min-height (root :right))))))
 
 (defn insert [root value]
-  (loop [current-node root
+  (loop [current root
          path []]
     (cond
-      (nil? current-node)
+      (nil? current)
         (assoc-in root path (node value))
-      (empty? current-node)
+      (empty? current)
         (node value)
-      (neg? (compare value (current-node :value)))
-        (recur (current-node :left) (conj path :left))
-      (pos? (compare value (current-node :value)))
-        (recur (current-node :right) (conj path :right)))))
+      (neg? (compare value (current :value)))
+        (recur (current :left) (conj path :left))
+      (pos? (compare value (current :value)))
+        (recur (current :right) (conj path :right)))))
 
 (defn coll->binary-search-tree [coll]
   (reduce insert {} coll))

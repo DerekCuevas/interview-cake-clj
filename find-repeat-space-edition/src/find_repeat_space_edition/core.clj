@@ -4,37 +4,31 @@
 (defn- bound [floor ceiling]
   {:floor floor :ceiling ceiling})
 
-(defn- midpoint [{:keys [floor ceiling]}]
+(defn- bound->midpoint [{:keys [floor ceiling]}]
   (+ (int (/ (- ceiling floor) 2)) floor))
 
-(defn- length [{:keys [floor ceiling]}]
+(defn- bound->length [{:keys [floor ceiling]}]
   (inc (- ceiling floor)))
 
-(defn- lower [{:keys [floor ceiling] :as bounds}]
-  (bound floor (midpoint bounds)))
+(defn- lower-bound [{:keys [floor ceiling] :as bounds}]
+  (bound floor (bound->midpoint bounds)))
 
-(defn- upper [{:keys [floor ceiling] :as bounds}]
-  (bound (inc (midpoint bounds)) ceiling))
+(defn- upper-bound [{:keys [floor ceiling] :as bounds}]
+  (bound (inc (bound->midpoint bounds)) ceiling))
 
 (defn- items-in-bound [arr {:keys [floor ceiling]}]
-  (reduce
-    (fn [in-bound item]
-      (if (<= floor item ceiling)
-        (inc in-bound)
-        in-bound))
-    0
-    arr))
+  (count (filter #(<= floor % ceiling) arr)))
 
 (defn find-dup
   "O(nlgn) time + O(1) space solution."
   [arr]
-  (loop [bounds (bound 1 (dec (count arr)))]
-    (let [lower-bound (lower bounds)
-          upper-bound (upper bounds)]
+  (loop [{:keys [floor ceiling] :as bounds} (bound 1 (dec (count arr)))]
+    (let [lower (lower-bound bounds)
+          upper (upper-bound bounds)]
       (cond
-        (>= (bounds :floor) (bounds :ceiling))
-          (bounds :floor)
-        (> (items-in-bound arr lower-bound) (length lower-bound))
-          (recur lower-bound)
+        (>= floor ceiling)
+          floor
+        (> (items-in-bound arr lower) (bound->length lower))
+          (recur lower)
         :else
-          (recur upper-bound)))))
+          (recur upper)))))
