@@ -5,9 +5,9 @@
   "O(n) time solution - recursively checking every node agaist range."
   ([root]
     (bst? root Integer/MIN_VALUE Integer/MAX_VALUE))
-  ([root min max]
+  ([{:keys [value left right] :as root} min max]
     (cond
       (empty? root) true
-      (not (< min (root :value) max)) false
-      :else (and (bst? (root :left) min (root :value))
-                 (bst? (root :right) (root :value) max)))))
+      (not (< min value max)) false
+      :else (and (bst? left min value)
+                 (bst? right value max)))))
