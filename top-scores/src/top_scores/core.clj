@@ -4,7 +4,7 @@
 (defn- int-frequencies [coll max-int]
   (reduce
     (fn [counts value]
-      (assoc counts value (inc (counts value))))
+      (update counts value inc))
     (vec (replicate (inc max-int) 0))
     coll))
 
