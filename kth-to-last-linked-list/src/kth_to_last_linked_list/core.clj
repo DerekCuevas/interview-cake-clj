@@ -8,8 +8,6 @@
   (let [length (list/length head)
         k-idx (- (dec length) k)]
     (when-not (neg? k-idx)
-      (loop [{:keys [value next]} head
-             idx 0]
-        (if (= idx k-idx)
-          value
-          (recur next (inc idx)))))))
+      (->> (range k-idx)
+           (reduce :next head)
+           :value))))
