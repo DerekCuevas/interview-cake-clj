@@ -16,11 +16,13 @@
   (testing "edge cases"
     (is (= (kth-to-last-node edge-a 0) nil))
     (is (= (kth-to-last-node edge-b 0) 7))
-    (is (= (kth-to-last-node edge-b 5) nil)))
+    (is (= (kth-to-last-node edge-b 5) nil))
+    (is (= (kth-to-last-node list-b 2) 6)))
   (testing "returns kth from last node in list"
     (is (= (kth-to-last-node list-a 0) 5))
     (is (= (kth-to-last-node list-a 1) 2))
     (is (= (kth-to-last-node list-b 2) 6))
     (is (= (kth-to-last-node list-c 3) 3))
     (is (= (kth-to-last-node list-d 4) 72))
+    (is (= (kth-to-last-node list-d (dec (list/length list-d))) 3))
     (is (= (kth-to-last-node list-e 5) 33))))

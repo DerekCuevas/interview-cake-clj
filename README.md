@@ -38,3 +38,4 @@ This repo contains most (x/44) solutions (with corresponding unit tests) for the
 ## Todo's
 - unit test messages - make sentences
 - add test-all script
+- clean up midpoint/random funcs w/->
