@@ -3,7 +3,7 @@
   (:gen-class))
 
 (defn- normalize [s]
-  (map #(str/lower-case (str/replace % #"(?i)[^\w']+" ""))
+  (map (comp str/lower-case #(str/replace % #"(?i)[^\w']+" ""))
        (str/split s #" ")))
 
 (defn word-cloud

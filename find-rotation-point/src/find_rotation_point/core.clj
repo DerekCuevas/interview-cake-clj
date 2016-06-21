@@ -13,7 +13,9 @@
       (recur (inc idx)))))
 
 (defn- midpoint [start end]
-  (+ (int (/ (- end start) 2)) start))
+  (-> (/ (- end start) 2)
+      (int)
+      (+ start)))
 
 (defn find-rotation-point-fast
   "O(lgn) time solution - binary search like."

@@ -12,8 +12,8 @@
     #{s}
     (reduce-kv
       (fn [permutations-so-far idx char]
-        (into permutations-so-far
-          (map (partial str char)
-               (permutations (remaining-subs s idx)))))
+        (->> (permutations (remaining-subs s idx))
+             (map (partial str char))
+             (into permutations-so-far)))
       #{}
       (vec s))))
