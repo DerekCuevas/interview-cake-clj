@@ -5,8 +5,7 @@
 (defn kth-to-last-node
   "O(n) time solution."
   [head k]
-  (let [length (list/length head)
-        k-idx (- (dec length) k)]
+  (let [k-idx (- (dec (list/length head)) k)]
     (when-not (neg? k-idx)
       (->> (range k-idx)
            (reduce :next head)
