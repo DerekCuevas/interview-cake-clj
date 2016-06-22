@@ -7,27 +7,13 @@
 (def list-b (list/coll->list [6 7 8]))
 (def list-c (list/coll->list [5 8 3 4]))
 
-(def reversed-a
-  {:value 2 :next
-  {:value 4 :next
-   nil}})
-
-(def reversed-b
-  {:value 8 :next
-  {:value 7 :next
-  {:value 6 :next
-   nil}}})
-
-(def reversed-c
-  {:value 4 :next
-  {:value 3 :next
-  {:value 8 :next
-  {:value 5 :next
-   nil}}}})
+(def reversed-a (list/coll->list [2 4]))
+(def reversed-b (list/coll->list [8 7 6]))
+(def reversed-c (list/coll->list [4 3 8 5]))
 
 (deftest reverse-list-test
   (testing "edge cases"
-    (is (= (reverse-list (list/coll->list [7])) {:value 7, :next nil})))
+    (is (= (reverse-list (list/coll->list [7])) (list/coll->list [7]))))
   (testing "returns reversed list, not in-place"
     (is (= (reverse-list list-a) reversed-a))
     (is (= (reverse-list list-b) reversed-b))

@@ -12,5 +12,5 @@
       (recur (inc lower-idx)
              (dec upper-idx)
              (-> reversed
-                 (assoc lower-idx (reversed upper-idx))
-                 (assoc upper-idx (reversed lower-idx)))))))
+                 (assoc lower-idx (get reversed upper-idx))
+                 (assoc upper-idx (get reversed lower-idx)))))))

@@ -11,9 +11,9 @@
   (if (<= (count s) 1)
     #{s}
     (reduce-kv
-      (fn [permutations-so-far idx char]
-        (->> (permutations (remaining-subs s idx))
-             (map (partial str char))
-             (into permutations-so-far)))
-      #{}
-      (vec s))))
+     (fn [permutations-so-far idx char]
+       (->> (permutations (remaining-subs s idx))
+            (map (partial str char))
+            (into permutations-so-far)))
+     #{}
+     (vec s))))

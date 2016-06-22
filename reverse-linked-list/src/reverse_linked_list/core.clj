@@ -9,5 +9,5 @@
          reversed nil]
     (if (nil? head)
       reversed
-      (recur (head :next)
-             (list/insert reversed (head :value))))))
+      (recur (:next head)
+             (list/insert reversed (:value head))))))
