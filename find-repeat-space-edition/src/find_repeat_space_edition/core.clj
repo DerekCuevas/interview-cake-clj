@@ -26,9 +26,6 @@
     (let [lower (lower-bound bounds)
           upper (upper-bound bounds)]
       (cond
-        (>= floor ceiling)
-          floor
-        (> (items-in-bound arr lower) (bound->length lower))
-          (recur lower)
-        :else
-          (recur upper)))))
+        (>= floor ceiling) floor
+        (> (items-in-bound arr lower) (bound->length lower)) (recur lower)
+        :else (recur upper)))))
