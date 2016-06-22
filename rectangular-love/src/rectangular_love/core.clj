@@ -6,17 +6,17 @@
 
 (defn- intersection [range-a range-b]
   (let [[first-range second-range] (sort-by :start [range-a range-b])]
-    (when (>= (first-range :end) (second-range :start))
-      {:start (max (first-range :start) (second-range :start))
-       :end (min (first-range :end) (second-range :end))})))
+    (when (>= (:end first-range) (:start second-range))
+      {:start (max (:start first-range) (:start second-range))
+       :end (min (:end first-range) (:end second-range))})))
 
 (defn- rect->vertical-range [rect]
-  {:start (rect :y)
-   :end (+ (rect :y) (rect :height))})
+  {:start (:y rect)
+   :end (+ (:y rect) (:height rect))})
 
 (defn- rect->horizontal-range [rect]
-  {:start (rect :x)
-   :end (+ (rect :x) (rect :width))})
+  {:start (:x rect)
+   :end (+ (:x rect) (:width rect))})
 
 (defn- find-vertical-intersection [rect-a rect-b]
   (intersection (rect->vertical-range rect-a)
@@ -32,7 +32,7 @@
   (let [vertical-intersection (find-vertical-intersection rect-a rect-b)
         horizontal-intersection (find-horizontal-intersection rect-a rect-b)]
     (when (and vertical-intersection horizontal-intersection)
-      {:x (horizontal-intersection :start)
-       :y (vertical-intersection :start)
+      {:x (:start horizontal-intersection)
+       :y (:start vertical-intersection)
        :width (range->length horizontal-intersection)
        :height (range->length vertical-intersection)})))

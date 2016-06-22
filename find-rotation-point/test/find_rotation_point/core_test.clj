@@ -65,12 +65,3 @@
     (is (= (find-rotation-point words-d) 1))
     (is (= (find-rotation-point words-e) 5))
     (is (= (find-rotation-point words-f) 2))))
-
-(deftest find-rotation-point-fast-test
-  (testing "should return index of rotation, assuming rotation exists"
-    (is (= (find-rotation-point-fast words-a) 5))
-    (is (= (find-rotation-point-fast words-b) 2))
-    (is (= (find-rotation-point-fast words-c) 4))
-    (is (= (find-rotation-point-fast words-d) 1))
-    (is (= (find-rotation-point-fast words-e) 5))
-    (is (= (find-rotation-point-fast words-f) 2))))

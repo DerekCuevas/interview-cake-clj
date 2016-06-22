@@ -9,10 +9,10 @@
     (node value)
     (-> (node value)
         (assoc :next head)
-        (assoc :count (inc (head :count))))))
+        (assoc :count (inc (:count head))))))
 
 (defn coll->list [coll]
   (reduce insert {} (reverse coll)))
 
 (defn length [head]
-  (head :count 0))
+  (:count head 0))

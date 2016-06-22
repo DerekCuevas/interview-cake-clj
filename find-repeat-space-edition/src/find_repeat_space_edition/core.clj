@@ -5,7 +5,9 @@
   {:floor floor :ceiling ceiling})
 
 (defn- bound->midpoint [{:keys [floor ceiling]}]
-  (+ (int (/ (- ceiling floor) 2)) floor))
+  (-> (/ (- ceiling floor) 2)
+      int
+      (+ floor)))
 
 (defn- bound->length [{:keys [floor ceiling]}]
   (inc (- ceiling floor)))
@@ -19,7 +21,7 @@
 (defn- items-in-bound [arr {:keys [floor ceiling]}]
   (count (filter #(<= floor % ceiling) arr)))
 
-(defn find-dup
+(defn find-repeat
   "O(nlgn) time + O(1) space solution."
   [arr]
   (loop [{:keys [floor ceiling] :as bounds} (bound 1 (dec (count arr)))]

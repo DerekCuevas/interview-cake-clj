@@ -3,12 +3,12 @@
 
 (defn- odd-frequencies [s]
   (reduce
-    (fn [counts char]
-      (if (contains? counts char)
-        (disj counts char)
-        (conj counts char)))
-    #{}
-    s))
+   (fn [counts char]
+     (if (contains? counts char)
+       (disj counts char)
+       (conj counts char)))
+   #{}
+   s))
 
 (defn permutation-palindrome?
   "O(n) time & space solution - counting odd frequencies with a set."

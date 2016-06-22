@@ -1,13 +1,6 @@
 (ns compute-nth-fibbonacci-number.core
   (:gen-class))
 
-(defn fib-slow
-  "O(2^n) time solution - top down"
-  [n]
-  (if (<= n 1)
-    n
-    (+ (fib-slow (dec n)) (fib-slow (- n 2)))))
-
 (defn fib-seq
   ([]
     (fib-seq 0 1))

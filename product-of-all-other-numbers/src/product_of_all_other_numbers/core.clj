@@ -8,10 +8,10 @@
 
 (defn- products-before [nums]
   (reduce
-    (fn [acc n]
-      (conj acc (* n (last acc))))
-    [1]
-    (butlast nums)))
+   (fn [acc n]
+     (conj acc (* n (last acc))))
+   [1]
+   (butlast nums)))
 
 (defn- products-after [nums]
   (rseq (products-before (rseq (vec nums)))))

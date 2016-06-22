@@ -11,7 +11,7 @@
    (fn [shuffled idx]
      (let [rand-idx (random idx (dec (count arr)))]
        (-> shuffled
-           (assoc rand-idx (shuffled idx))
-           (assoc idx (shuffled rand-idx)))))
+           (assoc rand-idx (get shuffled idx))
+           (assoc idx (get shuffled rand-idx)))))
    arr
    (range (count arr))))

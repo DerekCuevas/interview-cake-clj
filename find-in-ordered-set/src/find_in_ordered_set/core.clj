@@ -6,7 +6,9 @@
 (def ^:private eq? (comp zero? compare))
 
 (defn- midpoint [start end]
-  (+ (int (/ (- end start) 2)) start))
+  (-> (/ (- end start) 2)
+      int
+      (+ start)))
 
 (defn binary-search
   "O(lgn) - returns index of item in sorted vector, -1 if not found."
@@ -16,7 +18,7 @@
     (let [mid (midpoint start end)]
       (cond
         (zero? (- end start)) -1
-        (= (- end start) 1) (if (eq? (arr start) item) start -1)
-        (eq? (arr mid) item) mid
-        (gt? (arr mid) item) (recur start mid)
-        (lt? (arr mid) item) (recur mid end)))))
+        (= (- end start) 1) (if (eq? (get arr start) item) start -1)
+        (eq? (get arr mid) item) mid
+        (gt? (get arr mid) item) (recur start mid)
+        (lt? (get arr mid) item) (recur mid end)))))
