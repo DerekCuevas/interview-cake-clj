@@ -7,13 +7,13 @@
 (def ^:const sample-size 10000)
 
 (def ^:const expected-frequency (* sample-size (/ min-value max-value)))
-(def ^:const limit_frequency (* sample-size (/ (inc min-value) max-value)))
-(def ^:const margin_of_error (/ (- limit_frequency expected-frequency) 16))
+(def ^:const limit-frequency (* sample-size (/ (inc min-value) max-value)))
+(def ^:const margin-of-error (/ (- limit-frequency expected-frequency) 16))
 
 (defn within-margin-of-error? [freq]
-  (<= (- expected-frequency margin_of_error)
+  (<= (- expected-frequency margin-of-error)
       freq
-      (+ expected-frequency margin_of_error)))
+      (+ expected-frequency margin-of-error)))
 
 (defn within-range? [value]
   (<= min-value value max-value))
