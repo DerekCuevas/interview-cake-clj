@@ -16,6 +16,7 @@ This repo contains most (x/44) solutions (with corresponding unit tests) for the
 - [simulate-7-sided-die](simulate-7-sided-die/)
 - [find-repeat-space-edition](find-repeat-space-edition/)
 - [making-change](making-change/)
+- [cake-thief](cake-thief/)
 
 ## Problems Not Completed
 - find-duplicate-files
