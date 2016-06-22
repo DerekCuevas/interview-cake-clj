@@ -24,16 +24,6 @@
    {:weight 55 :value 140}
    {:weight 7 :value 55}])
 
-(deftest max-duffel-bag-value-greedy-test
-  (testing "returns max monetary value duffel bag can hold - greedy approximation"
-    (is (= (max-duffel-bag-value-greedy cakes-a 20) 555))
-    (is (= (max-duffel-bag-value-greedy cakes-b 100) 3000))
-    (is (= (max-duffel-bag-value-greedy cakes-c 8) 110))
-    (is (= (max-duffel-bag-value-greedy cakes-d 500) 5585))
-
-    ;; edge case - should fail greedy approximation
-    (is (= (max-duffel-bag-value-greedy cakes-c 9) 120))))
-
 (deftest max-duffel-bag-value-test
   (testing "returns max monetary value duffel bag can hold"
     (is (= (max-duffel-bag-value cakes-a 20) 555))

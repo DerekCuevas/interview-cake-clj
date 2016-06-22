@@ -7,14 +7,14 @@
 (defn max-height [root]
   (if (nil? root)
     0
-    (inc (max (max-height (root :left))
-              (max-height (root :right))))))
+    (inc (max (max-height (:left root))
+              (max-height (:right root))))))
 
 (defn min-height [root]
   (if (nil? root)
     0
-    (inc (min (min-height (root :left))
-              (min-height (root :right))))))
+    (inc (min (min-height (:left root))
+              (min-height (:right root))))))
 
 (defn insert [root value]
   (loop [current root
@@ -24,10 +24,10 @@
         (assoc-in root path (node value))
       (empty? current)
         (node value)
-      (neg? (compare value (current :value)))
-        (recur (current :left) (conj path :left))
-      (pos? (compare value (current :value)))
-        (recur (current :right) (conj path :right)))))
+      (neg? (compare value (:value current)))
+        (recur (:left current) (conj path :left))
+      (pos? (compare value (:value current)))
+        (recur (:right current) (conj path :right)))))
 
 (defn coll->binary-search-tree [coll]
   (reduce insert {} coll))
@@ -35,23 +35,23 @@
 (defn tree->preorder-lazy-seq [root]
   (if (empty? root)
     '()
-    (lazy-cat (list (root :value))
-              (tree->preorder-lazy-seq (root :left))
-              (tree->preorder-lazy-seq (root :right)))))
+    (lazy-cat (list (:value root))
+              (tree->preorder-lazy-seq (:left root))
+              (tree->preorder-lazy-seq (:right root)))))
 
 (defn tree->inorder-lazy-seq [root]
   (if (empty? root)
     '()
-    (lazy-cat (tree->inorder-lazy-seq (root :left))
-              (list (root :value))
-              (tree->inorder-lazy-seq (root :right)))))
+    (lazy-cat (tree->inorder-lazy-seq (:left root))
+              (list (:value root))
+              (tree->inorder-lazy-seq (:right root)))))
 
 (defn tree->postorder-lazy-seq [root]
   (if (empty? root)
     '()
-    (lazy-cat (tree->postorder-lazy-seq (root :left))
-              (tree->postorder-lazy-seq (root :right))
-              (list (root :value)))))
+    (lazy-cat (tree->postorder-lazy-seq (:left root))
+              (tree->postorder-lazy-seq (:right root))
+              (list (:value root)))))
 
 (defn largest [{:keys [value right]}]
   (if (nil? right)

@@ -6,9 +6,9 @@
   "O(lgn) time solution."
   [root]
   (loop [parent nil
-         current root]
-    (if (nil? (current :right))
-      (if (nil? (current :left))
-        (and parent (parent :value))
-        (tree/largest (current :left)))
-      (recur current (current :right)))))
+         {:keys [value left right] :as current} root]
+    (if (nil? right)
+      (if (nil? left)
+        (:value parent)
+        (tree/largest left))
+      (recur current right))))

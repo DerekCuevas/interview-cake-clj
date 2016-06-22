@@ -8,6 +8,6 @@
 (defn get-max-profit
   "O(n) time solution - returns max potential profit from set of stock prices."
   [stock-prices]
-  ((reduce update-min-max
-           {:max-profit 0 :min-price (first stock-prices)}
-           (rest stock-prices)) :max-profit))
+  (:max-profit (reduce update-min-max
+                       {:max-profit 0 :min-price (first stock-prices)}
+                       (rest stock-prices))))
