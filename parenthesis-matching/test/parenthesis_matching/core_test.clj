@@ -14,10 +14,8 @@
 (deftest find-closing-parenthesis-test
   (testing "edge cases"
     (is (= (find-closing-parenthesis edge-a 0) 1))
-    (is (= (find-closing-parenthesis edge-a 1) -1))
     (is (= (find-closing-parenthesis edge-b 2) 3))
-    (is (= (find-closing-parenthesis edge-c 1) 2))
-    (is (= (find-closing-parenthesis edge-c 10) -1)))
+    (is (= (find-closing-parenthesis edge-c 1) 2)))
   (testing "should return index of closing parenthesis"
     (is (= (find-closing-parenthesis str-a 10) 79))
     (is (= (find-closing-parenthesis str-a 28) 46))

@@ -34,7 +34,6 @@ This repo contains most (x/44) solutions (with corresponding unit tests) for the
 
 ### Needs Work
 - highest-product-of-three
-- parenthesis-matching
 
 ## Todo's
 - unit test messages - make sentences

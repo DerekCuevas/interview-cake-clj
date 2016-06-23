@@ -14,7 +14,7 @@
    cakes))
 
 (defn max-duffel-bag-value
-  "O(n*k) time solution, where k = capacity - dynamic and bottom up."
+  "O(n * k) time solution, where k = capacity - dynamic and bottom up."
   [cakes capacity]
   (let [init-max-value-at-capacity (vec (repeat (inc capacity) 0))]
     (get (reduce-kv
