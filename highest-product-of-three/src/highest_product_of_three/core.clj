@@ -12,6 +12,7 @@
 (defn highest-product-of-k
   "O(nlgn) time + O(n + k) space solution."
   [arr k]
-  (->> (map (partial rotation (sortv arr) k) (range (inc k)))
+  (->> (range (inc k))
+       (map (partial rotation (sortv arr) k))
        (map (partial reduce *))
        (apply max)))

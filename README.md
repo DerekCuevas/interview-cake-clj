@@ -2,21 +2,22 @@
 This repo contains most (x/44) solutions (with corresponding unit tests) for the problems on [interview cake](https://www.interviewcake.com). Implemented in Clojure as idiomatically as possible; eg. avoiding mutation, side effects, and, ...
 
 ## Favorite Problems
+- [highest-product-of-three](highest-product-of-three/)
+- [recursive-string-permutations](recursive-string-permutations/)
+- [in-place-shuffle](in-place-shuffle/)
+- [kth-to-last-linked-list](kth-to-last-linked-list/)
+- [cake-thief](cake-thief/)
+- [find-rotation-point](find-rotation-point/)
+- [inflight-entertainment](inflight-entertainment/)
 - [merging-meeting-times](merging-meeting-times/)
 - [rectangular-love](rectangular-love/)
 - [balanced-binary-tree](balanced-binary-tree/)
-- [find-rotation-point](find-rotation-point/)
-- [inflight-entertainment](inflight-entertainment/)
-- [the-stolen-breakfast-drone](the-stolen-breakfast-drone/)
-- [kth-to-last-linked-list](kth-to-last-linked-list/)
-- [recursive-string-permutations](recursive-string-permutations/)
 - [top-scores](top-scores/)
-- [in-place-shuffle](in-place-shuffle/)
+- [the-stolen-breakfast-drone](the-stolen-breakfast-drone/)
 - [simulate-5-sided-die](simulate-5-sided-die/)
 - [simulate-7-sided-die](simulate-7-sided-die/)
 - [find-repeat-space-edition](find-repeat-space-edition/)
 - [making-change](making-change/)
-- [cake-thief](cake-thief/)
 
 ## Problems Not Completed
 - find-duplicate-files
@@ -31,11 +32,3 @@ This repo contains most (x/44) solutions (with corresponding unit tests) for the
 - linked-list-cycles
 - javascript-scope
 - what's-wrong-with-this-javascript
-
-### Needs Work
-- highest-product-of-three
-
-## Todo's
-- unit test messages - make sentences
-- add test-all script
-- clean up midpoint/random funcs w/->
