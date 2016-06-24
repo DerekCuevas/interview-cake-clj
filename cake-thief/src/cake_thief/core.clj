@@ -22,4 +22,5 @@
             (->> (max-value-for current-capacity max-value-at-capacity cakes)
                  (assoc max-value-at-capacity current-capacity)))
           init-max-value-at-capacity
-          init-max-value-at-capacity) capacity)))
+          init-max-value-at-capacity)
+         capacity)))

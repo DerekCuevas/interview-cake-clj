@@ -24,7 +24,15 @@
    {:weight 55 :value 140}
    {:weight 7 :value 55}])
 
+(def edge-a
+ [{:weight 5 :value 30}])
+
 (deftest max-duffel-bag-value-test
+  (testing "edge cases"
+    (is (= (max-duffel-bag-value [] 10) 0))
+    (is (= (max-duffel-bag-value edge-a 4) 0))
+    (is (= (max-duffel-bag-value edge-a 5) 30))
+    (is (= (max-duffel-bag-value edge-a 20) 120)))
   (testing "returns max monetary value duffel bag can hold"
     (is (= (max-duffel-bag-value cakes-a 20) 555))
     (is (= (max-duffel-bag-value cakes-b 100) 3000))
