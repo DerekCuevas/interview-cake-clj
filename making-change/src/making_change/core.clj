@@ -6,13 +6,13 @@
   [amount denominations]
   (get (reduce
         (fn [ways-of-doing-n-cents coin]
-          (loop [higher-amount coin
-                 ways-of-doing-n-cents ways-of-doing-n-cents]
-            (if (> higher-amount amount)
-              ways-of-doing-n-cents
-              (recur (inc higher-amount)
-                     (->> (- higher-amount coin)
-                          (get ways-of-doing-n-cents)
-                          (update ways-of-doing-n-cents higher-amount +))))))
+          (reduce
+           (fn [ways-of-doing-n-cents higher-amount]
+             (->> (- higher-amount coin)
+                  (get ways-of-doing-n-cents)
+                  (update ways-of-doing-n-cents higher-amount +)))
+           ways-of-doing-n-cents
+           (range coin (inc amount))))
         (vec (conj (replicate amount 0) 1))
-        denominations) amount))
+        denominations)
+       amount))
