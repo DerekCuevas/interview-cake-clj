@@ -3,7 +3,9 @@
 
 (def ^:private sortv (comp vec sort))
 
-(defn- rotation [arr k idx]
+(defn- rotation
+  "Rotates bucket of k length around the bottom and top of arr by idx."
+  [arr k idx]
   (let [top (- (count arr) (- k idx))]
     (vec (concat (subvec arr 0 idx)
                  (subvec arr top)))))
