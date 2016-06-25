@@ -4,9 +4,9 @@
 (def ^:private sortv (comp vec sort))
 
 (defn- rotation [arr k idx]
-  (let [bottom (subvec arr 0 idx)
-        top (subvec arr (- (count arr) (- k idx)))]
-    (vec (concat bottom top))))
+  (let [top (- (count arr) (- k idx))]
+    (vec (concat (subvec arr 0 idx)
+                 (subvec arr top)))))
 
 (defn highest-product-of-k
   "O(nlgn) time + O(n + (k + k^2)) space solution."
