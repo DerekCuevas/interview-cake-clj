@@ -10,9 +10,11 @@
                  (subvec arr top)))))
 
 (defn highest-product-of-k
-  "O(nlgn) time + O(n + k) space solution."
+  "O(nlgn) time + O(n + (k + k^2)) space solution."
   [arr k]
-  (->> (range (inc k))
-       (map (partial rotation (sortv arr) k))
-       (map (partial reduce *))
-       (apply max)))
+  (if (>= k (count arr))
+    (reduce * arr)
+    (->> (range (inc k))
+         (map (partial rotation (sortv arr) k))
+         (map (partial reduce *))
+         (apply max))))

@@ -3,13 +3,14 @@
             [highest-product-of-three.core :refer :all]))
 
 (deftest highest-product-of-k-test
-  (testing "edge cases - assuming k < length of vector"
+  (testing "edge cases"
     (is (= (highest-product-of-k [5] 1) 5))
+    (is (= (highest-product-of-k [5] 2) 5))
     (is (= (highest-product-of-k [-7] 1) -7))
     (is (= (highest-product-of-k [-3 -5] 1) -3))
     (is (= (highest-product-of-k [-3 -5] 2) 15))
     (is (= (highest-product-of-k [1 2 3] 3) 6))
-    (is (= (highest-product-of-k [3 2 1] 3) 6))
+    (is (= (highest-product-of-k [3 2 1] 4) 6))
     (is (= (highest-product-of-k [2 3 2 3 2 3 3 3 2 2] 2) 9))
     (is (= (highest-product-of-k [2 3 2 3 2 3 3 3 2 2] 3) 27)))
   (testing "returns highest product of k ints"
