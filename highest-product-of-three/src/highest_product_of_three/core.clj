@@ -1,8 +1,6 @@
 (ns highest-product-of-three.core
   (:gen-class))
 
-(def ^:private sortv (comp vec sort))
-
 (defn- rotation
   "Rotates bucket of k length around the bottom and top of arr by idx."
   [arr k idx]
@@ -12,10 +10,10 @@
 
 (defn highest-product-of-k
   "O(nlgn) time + O(n + (k + k^2)) space solution."
-  [arr k]
+  [k arr]
   (if (>= k (count arr))
     (reduce * arr)
     (->> (range (inc k))
-         (map (partial rotation (sortv arr) k))
+         (map (partial rotation (vec (sort arr)) k))
          (map (partial reduce *))
          (apply max))))
