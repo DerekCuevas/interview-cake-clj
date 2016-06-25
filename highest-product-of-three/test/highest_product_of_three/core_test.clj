@@ -13,7 +13,7 @@
     (is (= (highest-product-of-k [3 2 1] 4) 6))
     (is (= (highest-product-of-k [2 3 2 3 2 3 3 3 2 2] 2) 9))
     (is (= (highest-product-of-k [2 3 2 3 2 3 3 3 2 2] 3) 27)))
-  (testing "returns highest product of k ints"
+  (testing "returns highest product of k ints - handles negative numbers"
     (is (= (highest-product-of-k [6 4 5 2] 3) 120))
     (is (= (highest-product-of-k [5 8 7 2 3] 3) 280))
     (is (= (highest-product-of-k [3 5 7 1 2 4] 3) 140))
