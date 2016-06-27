@@ -5,8 +5,8 @@ Some problems are left uncompleted either because they are mostly theoretical, d
 
 ## Running The Problems
 Each problem is defined as its own self contained Clojure leiningen project. First make sure to have [leiningen](https://github.com/technomancy/leiningen) installed.
+Then after cloning the main repo, `cd` into the directory of the problem and either run the unit tests with `lein test` or launch the Clojure REPL with `lein repl`.
 
-Then after cloning the main repo, `cd` into a promblem's sub-directory and either run the unit tests with `lein test` or launch the Clojure REPL with `lein repl`.
 
 ## Contributing
 Contributions are very welcome! Please feel free to open an issue or pull request if you find a bug or think there is a better way to solve one of the problems solved above.
