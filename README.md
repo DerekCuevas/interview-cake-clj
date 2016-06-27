@@ -1,34 +1,12 @@
 # Interview Cake Clojure Solutions
-This repo contains most (32/44) solutions (with corresponding unit tests) for the problems on [interview cake](https://www.interviewcake.com). Implemented in Clojure as idiomatically as possible; eg. avoiding mutation, side effects, and, ...
+This repository contains most solutions (32/44), with corresponding unit tests, for the problems defined on [interview cake](https://www.interviewcake.com). The solutions are implemented in Clojure as idiomatically as possible and attempt to follow the guidelines outlined in the [clojure-style-guide](https://github.com/bbatsov/clojure-style-guide).
 
-## Favorite Problems
-- [highest-product-of-three](highest-product-of-three/)
-- [balanced-binary-tree](balanced-binary-tree/)
-- [find-rotation-point](find-rotation-point/)
-- [in-place-shuffle](in-place-shuffle/)
-- [recursive-string-permutations](recursive-string-permutations/)
-- [kth-to-last-linked-list](kth-to-last-linked-list/)
-- [top-scores](top-scores/)
-- [cake-thief](cake-thief/)
-- [inflight-entertainment](inflight-entertainment/)
-- [merging-meeting-times](merging-meeting-times/)
-- [rectangular-love](rectangular-love/)
-- [the-stolen-breakfast-drone](the-stolen-breakfast-drone/)
-- [simulate-5-sided-die](simulate-5-sided-die/)
-- [simulate-7-sided-die](simulate-7-sided-die/)
-- [find-repeat-space-edition](find-repeat-space-edition/)
-- [making-change](making-change/)
+Some problems are left uncompleted either because they are mostly theoretical, discussion based, or don't fit nicely with Clojure (eg. problems dealing purely with mutation).
 
-## Problems Not Completed
-- find-duplicate-files
-- temperature-tracker
-- queue-two-stacks
-- largest-stack
-- million-gazillion
-- two-egg-problem
-- find-repeat-space-edition, BEAST MODE
-- url-shortener
-- delete-node
-- linked-list-cycles
-- javascript-scope
-- what's-wrong-with-this-javascript
+## Running The Problems
+Each problem is defined as its own self contained Clojure leiningen project. First make sure to have [leiningen](https://github.com/technomancy/leiningen) installed.
+
+Then after cloning the main repo, `cd` into a promblem's sub-directory and either run the unit tests with `lein test` or launch the Clojure REPL with `lein repl`.
+
+## Contributing
+Contributions are very welcome! Please feel free to open an issue or pull request if you find a bug or think there is a better way to solve one of the problems solved above.
