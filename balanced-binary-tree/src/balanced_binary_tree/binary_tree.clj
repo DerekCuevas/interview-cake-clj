@@ -22,15 +22,15 @@
     (cond
       (nil? current)
         (assoc-in root path (node value))
-      (empty? current)
-        (node value)
       (neg? (compare value (:value current)))
         (recur (:left current) (conj path :left))
       (pos? (compare value (:value current)))
         (recur (:right current) (conj path :right)))))
 
 (defn coll->binary-search-tree [coll]
-  (reduce insert {} coll))
+  (reduce insert
+          (node (first coll))
+          (rest coll)))
 
 (defn tree->preorder-lazy-seq [root]
   (if (empty? root)
