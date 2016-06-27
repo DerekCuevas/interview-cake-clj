@@ -1,11 +1,10 @@
 # Interview Cake Clojure Solutions
 This repository contains most solutions (32/44), with corresponding unit tests, for the problems defined on [interview cake](https://www.interviewcake.com). The solutions are implemented in Clojure as idiomatically as possible and attempt to follow the guidelines outlined in the [clojure-style-guide](https://github.com/bbatsov/clojure-style-guide).
 
-Some problems are left uncompleted either because they are mostly theoretical, discussion based, or don't fit nicely with Clojure (eg. problems dealing purely with mutation).
+Some problems are left unsolved either because they are mostly theoretical, discussion based, or do not fit nicely with Clojure (eg. problems dealing purely with mutation).
 
 ## Running The Problems
-Each problem is defined as its own self contained Clojure leiningen project. First make sure to have [leiningen](https://github.com/technomancy/leiningen) installed.
-Then after cloning the main repo, `cd` into the directory of the problem and either run the unit tests with `lein test` or launch the Clojure REPL with `lein repl`.
+Each problem is defined as its own self contained Clojure leiningen project. To run, first make sure to have [leiningen](https://github.com/technomancy/leiningen) installed. Then, after cloning the main repository, `cd` into the directory of a problem and either run the unit tests with `lein test` or launch the Clojure REPL with `lein repl`.
 
 
 ## Contributing
