@@ -10,13 +10,11 @@
       {:start (max (:start first-range) (:start second-range))
        :end (min (:end first-range) (:end second-range))})))
 
-(defn- rect->vertical-range [rect]
-  {:start (:y rect)
-   :end (+ (:y rect) (:height rect))})
+(defn- rect->vertical-range [{:keys [y height]}]
+  {:start y :end (+ y height)})
 
-(defn- rect->horizontal-range [rect]
-  {:start (:x rect)
-   :end (+ (:x rect) (:width rect))})
+(defn- rect->horizontal-range [{:keys [x width]}]
+  {:start x :end (+ x width)})
 
 (defn- find-vertical-intersection [rect-a rect-b]
   (intersection (rect->vertical-range rect-a)
