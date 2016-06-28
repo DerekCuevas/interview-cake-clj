@@ -6,6 +6,13 @@ Some problems are left unsolved either because they are mostly theoretical, disc
 ## Running The Problems
 Each problem is defined as its own self contained Clojure leiningen project. To run, first make sure to have [leiningen](https://github.com/technomancy/leiningen) installed. Then, after cloning the main repository, `cd` into the directory of a problem and either run the unit tests with `lein test` or launch the Clojure REPL with `lein repl`.
 
+## A Few Favorites
+- [recursive-string-permutations](recursive-string-permutations/)
+- [highest-product-of-three](highest-product-of-three/)
+- [find-rotation-point](find-rotation-point/)
+- [in-place-shuffle](in-place-shuffle/)
+- [rectangular-love](rectangular-love/)
+- [simulate-7-sided-die](simulate-7-sided-die/)
 
 ## Contributing
 Contributions are very welcome! Please feel free to open an issue or pull request if you find a bug or think there is a better way to solve one of the problems solved above.
