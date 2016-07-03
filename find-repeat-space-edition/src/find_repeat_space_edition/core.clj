@@ -5,17 +5,18 @@
   {:floor floor :ceiling ceiling})
 
 (defn- bound->midpoint [{:keys [floor ceiling]}]
-  (-> (/ (- ceiling floor) 2)
+  (-> (- ceiling floor)
+      (/ 2)
       int
       (+ floor)))
 
 (defn- bound->length [{:keys [floor ceiling]}]
   (inc (- ceiling floor)))
 
-(defn- lower-bound [{:keys [floor ceiling] :as bounds}]
+(defn- lower-bound [{:keys [floor] :as bounds}]
   (bound floor (bound->midpoint bounds)))
 
-(defn- upper-bound [{:keys [floor ceiling] :as bounds}]
+(defn- upper-bound [{:keys [ceiling] :as bounds}]
   (bound (inc (bound->midpoint bounds)) ceiling))
 
 (defn- items-in-bound [arr {:keys [floor ceiling]}]
