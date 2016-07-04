@@ -5,7 +5,8 @@
 (def ^:private lt? (comp neg? compare))
 
 (defn- midpoint [start end]
-  (-> (/ (- end start) 2)
+  (-> (- end start)
+      (/ 2)
       int
       (+ start)))
 
