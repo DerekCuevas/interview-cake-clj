@@ -19,10 +19,8 @@
     "cabd" "cadb" "cbad" "cbda" "cdab" "cdba"
     "dacb" "dabc" "dbca" "dbac" "dcba" "dcab"})
 
-(def long-str-a "abcdef")
-(def long-str-b "abcdefgh")
-(def long-permutations-a (permutations long-str-a))
-(def long-permutations-b (permutations long-str-b))
+(def long-permutations-a (permutations "abcdef"))
+(def long-permutations-b (permutations "abcdefgh"))
 
 (defn factorial [n]
   (reduce * (range 1 (inc n))))
@@ -38,5 +36,5 @@
   (testing "longer permutations"
     (is (set? long-permutations-a))
     (is (set? long-permutations-b))
-    (is (= (count long-permutations-a) (factorial (count long-str-a))))
-    (is (= (count long-permutations-b) (factorial (count long-str-b))))))
+    (is (= (count long-permutations-a) (factorial 6)))
+    (is (= (count long-permutations-b) (factorial 8)))))
