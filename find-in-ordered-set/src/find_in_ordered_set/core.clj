@@ -16,10 +16,12 @@
   [arr item]
   (loop [start 0
          end (count arr)]
-    (let [mid (midpoint start end)]
+    (let [mid (midpoint start end)
+          length (- end start)
+          mid-item (get arr mid)
+          first-item (get arr start)]
       (cond
-        (zero? (- end start)) -1
-        (= (- end start) 1) (if (eq? (get arr start) item) start -1)
-        (eq? (get arr mid) item) mid
-        (gt? (get arr mid) item) (recur start mid)
-        (lt? (get arr mid) item) (recur mid end)))))
+        (<= length 1) (if (eq? first-item item) start -1)
+        (eq? mid-item item) mid
+        (gt? mid-item item) (recur start mid)
+        :else (recur mid end)))))
