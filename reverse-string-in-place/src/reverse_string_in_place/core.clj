@@ -1,6 +1,11 @@
 (ns reverse-string-in-place.core
   (:gen-class))
 
+(defn- swap [arr idx-a idx-b]
+  (-> arr
+      (assoc idx-a (get arr idx-b))
+      (assoc idx-b (get arr idx-a))))
+
 (defn reverse-string
   "O(n) time - not in place (converting to vector) ~ but similar algorithm."
   [s]
@@ -11,6 +16,4 @@
       (apply str reversed)
       (recur (inc lower-idx)
              (dec upper-idx)
-             (-> reversed
-                 (assoc lower-idx (get reversed upper-idx))
-                 (assoc upper-idx (get reversed lower-idx)))))))
+             (swap reversed lower-idx upper-idx)))))
