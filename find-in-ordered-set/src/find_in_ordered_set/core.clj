@@ -2,8 +2,8 @@
   (:gen-class))
 
 (def ^:private gt? (comp pos? compare))
-(def ^:private lt? (comp neg? compare))
 (def ^:private eq? (comp zero? compare))
+(def ^:private not-eq? (complement eq?))
 
 (defn- midpoint [start end]
   (-> (- end start)
@@ -17,11 +17,10 @@
   (loop [start 0
          end (count arr)]
     (let [mid (midpoint start end)
-          length (- end start)
           mid-item (get arr mid)
-          first-item (get arr start)]
+          length (- end start)]
       (cond
-        (<= length 1) (if (eq? first-item item) start -1)
+        (and (<= length 1) (not-eq? mid-item item)) -1
         (eq? mid-item item) mid
         (gt? mid-item item) (recur start mid)
         :else (recur mid end)))))
