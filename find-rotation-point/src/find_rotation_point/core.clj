@@ -19,4 +19,4 @@
       (cond
         (<= (- end start) 1) end
         (gt? (get words mid) first-word) (recur mid end)
-        (lt? (get words mid) first-word) (recur start mid)))))
+        :else (recur start mid)))))
