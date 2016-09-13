@@ -8,11 +8,11 @@
   (random 1 5))
 
 (def ^:private rand7-matrix
-  [[1 2 3 4 5]
-   [6 7 1 2 3]
-   [4 5 6 7 1]
-   [2 3 4 5 6]
-   [7 0 0 0 0]])
+  (->> (range 1 8)
+       (cycle)
+       (take 21)
+       (partition 5 5 (repeat 0))
+       (mapv vec)))
 
 (defn rand7-with-matrix []
   (loop [row (dec (rand5))
