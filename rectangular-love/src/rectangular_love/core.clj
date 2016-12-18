@@ -7,7 +7,7 @@
 (defn- intersection [range-a range-b]
   (let [[first-range second-range] (sort-by :start [range-a range-b])]
     (when (>= (:end first-range) (:start second-range))
-      {:start (max (:start first-range) (:start second-range))
+      {:start (:start second-range)
        :end (min (:end first-range) (:end second-range))})))
 
 (defn- rect->vertical-range [{:keys [y height]}]
